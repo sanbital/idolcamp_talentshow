@@ -15,7 +15,7 @@ window.MUNIVERSE_CONFIG = {
   gisu: 1, maxShown: 1000,
 
   // ▼ 테스트용 Turnstile Site Key(공개키). Cloudflare에서 테스트 도메인으로 새로 발급 권장.
-  turnstileSiteKey: "<테스트-turnstile-site-key>",
+  turnstileSiteKey: "0x4AAAAAAD0Ey7nrVqGnKma-",
 
   // ── 짤 장기자랑 ───────────────────────────────────────────
   talent: {
