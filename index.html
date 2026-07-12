@@ -5076,10 +5076,12 @@ function renderTalentFilters(){
   box.innerHTML=opts.map(o=>`<button type="button" class="talent-filter ${talentTeam===o.id?"active":""}" data-team="${esc(o.id)}">${esc(o.name)}</button>`).join("");
   box.querySelectorAll("[data-team]").forEach(b=>b.onclick=()=>{talentTeam=b.dataset.team;talentPage=1;renderTalentFilters();loadTalent();});
 }
-async function loadTalent(){
+async function loadTalent(silent){
   const T=talentText(), podium=$("#talentPodium"), list=$("#talentList"), pager=$("#talentPager");
-  if(podium) podium.innerHTML=`<div class="talent-empty">${esc(T.loading)}</div>`;
-  if(list) list.innerHTML=`<div class="talent-empty">${esc(T.loading)}</div>`;
+  if(!silent){
+    if(podium) podium.innerHTML=`<div class="talent-empty">${esc(T.loading)}</div>`;
+    if(list) list.innerHTML=`<div class="talent-empty">${esc(T.loading)}</div>`;
+  }
   try{
     talentData=await fetchTalentLeaderboard();
     const top=Array.isArray(talentData.top3)?talentData.top3:[];
@@ -5096,8 +5098,10 @@ async function loadTalent(){
     pager.querySelectorAll("[data-move]").forEach(b=>b.onclick=()=>{talentPage+=b.dataset.move==="next"?1:-1;loadTalent();$("#talentList").scrollIntoView({behavior:"smooth",block:"start"});});
   }catch(e){
     console.warn("Talent leaderboard failed",e);
-    if(podium) podium.innerHTML=`<div class="talent-empty">${esc(T.empty)}</div>`;
-    if(list) list.innerHTML=`<div class="talent-empty">${esc(T.submitError)}</div>`;
+    if(!silent){
+      if(podium) podium.innerHTML=`<div class="talent-empty">${esc(T.empty)}</div>`;
+      if(list) list.innerHTML=`<div class="talent-empty">${esc(T.submitError)}</div>`;
+    }
   }
 }
 function openTalentModal(){
@@ -5187,6 +5191,9 @@ loadMemberPhotos();
 buildTeams();
 applyI18n();
 setInterval(renderScoreboard, 60000);
+// 장기자랑 순위도 1분마다 조용히 갱신합니다 (로딩 문구 없이 데이터만 갱신).
+// 브라우저 탭이 백그라운드일 때는 건너뛰어 불필요한 요청을 줄입니다.
+setInterval(()=>{ if(talentInited && !document.hidden) loadTalent(true); }, 60000);
 logoImg.onload=()=>{ if($("#result").classList.contains("show")) renderCert(); };
 </script>
 </body>
