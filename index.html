@@ -3011,6 +3011,10 @@
   .talent-team{display:inline-flex;border-radius:999px;padding:4px 8px;font-size:10.5px;font-weight:900;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .talent-like{margin-top:auto;font-size:18px;font-weight:950;color:#c7254e}
   .talent-xlink{border:1.5px solid #111;background:#111;color:#fff;padding:10px 12px;font-size:12px;margin-top:2px}
+  .talent-report{font-family:inherit;cursor:pointer;border:1px solid #d9c7b0;background:transparent;color:#8a7a63;border-radius:10px;padding:6px 9px;font-size:11px;font-weight:800;transition:.12s}
+  .talent-report:hover{background:#f3e9d9;border-color:#c9a86f;color:#7a5a2a}
+  .talent-medal-card .talent-report{margin-top:6px}
+  .talent-actions{display:flex;flex-direction:column;gap:5px;align-items:stretch}
   .talent-controls{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 12px}
   .talent-filters{display:flex;gap:6px;overflow-x:auto;max-width:100%;padding-bottom:2px;scrollbar-width:none}
   .talent-filters::-webkit-scrollbar{display:none}
@@ -3060,7 +3064,9 @@
     .talent-row .talent-account{grid-area:meta;font-size:11.5px}
     .talent-row .talent-team{display:none}
     .talent-row .talent-like{grid-area:likes;align-self:start}
-    .talent-row .talent-xlink{grid-area:button;padding:7px 9px;font-size:10.5px}
+    .talent-row .talent-actions{grid-area:button}
+    .talent-row .talent-xlink{padding:7px 9px;font-size:10.5px}
+    .talent-row .talent-report{padding:5px 8px;font-size:10px}
   }
   @media (max-width:640px){
     .talent-wrap{margin-top:12px}
@@ -4964,6 +4970,32 @@ const TALENT_I18N = {
   "zh-TW":{kicker:"IDOL CAMP TALENT SHOW",title:"迷因才藝大賽",intro:"把《偶像訓練營》的精彩瞬間製作成迷因並上傳到X！",ruleRegister:"有效作品登記分數",ruleLike:"每個X按讚",ruleWinner:"決賽冠軍隊獎勵",register:"登記作品",guide:"參加方法",guideTitle:"參加方法",guideSub:"請加入指定主題標籤及應援隊標籤。",topTitle:"🏅 人氣作品 TOP 3",topSub:"依X按讚數排名。",rankingTitle:"全部排名",rankingSub:"每頁顯示30個作品。",formTitle:"登記作品",teamLabel:"應援隊",titleLabel:"作品標題",urlLabel:"X貼文網址",urlHelp:"系統將依貼文網址自動確認X帳號及個人頁網址。",consentPublic:"貼文為公開狀態，並將公開至決賽結束。",consentRights:"作品由本人製作或已獲登記授權，並同意活動使用。",consentOwner:"若本人不是發布者，可依發布者要求刪除登記並取消分數。",consentRules:"如發現違規或作弊，登記和分數可能被取消。",submit:"提交審核",view:"前往X查看",all:"全部",loading:"正在載入排名。",empty:"尚無登記作品。",prev:"上一頁",next:"下一頁",count:"個作品",updated:"最後統計",pending:"已提交。審核通過後將反映到排名和分數。",demoPending:"測試登記完成，未寫入正式資料庫。",submitError:"登記失敗，請檢查輸入內容及貼文公開狀態。",closed:"目前不在登記期間。",prelim:"X預賽",review:"決賽審核",final:"Muniverse決賽",ended:"結束",guideSteps:["使用節目畫面製作圖片、GIF或影片。","加入指定標籤與隊伍標籤後公開上傳到X。","登記標題、隊伍及X貼文網址並提交審核。","審核通過後獲得10,000分，每個X按讚再獲得100分。"]}
 };
 function talentText(){ return TALENT_I18N[lang] || TALENT_I18N.en; }
+const TALENT_X = {
+  ko:{reportBtn:"🚩 신고",reportConfirm:"이 작품을 신고할까요? 부적절·도용·규정 위반만 신고해주세요.",reportReason:"신고 사유(선택)",reportDone:"신고가 접수되었습니다.",reportDup:"이미 신고한 작품입니다.",reportLimit:"신고 요청이 너무 많습니다. 잠시 후 다시 시도해주세요.",reportHidden:"신고가 누적되어 검토 대기로 전환되었습니다.",reportGone:"이미 처리된 작품입니다.",reportErr:"신고 처리에 실패했습니다.",posted:"등록되었습니다! 순위에 바로 반영됩니다.",demoReport:"테스트 신고가 접수되었습니다(실제 반영 없음)."},
+  en:{reportBtn:"🚩 Report",reportConfirm:"Report this entry? Please report only inappropriate, stolen, or rule-breaking works.",reportReason:"Reason (optional)",reportDone:"Report received.",reportDup:"You already reported this entry.",reportLimit:"Too many reports. Please try again later.",reportHidden:"This entry has been hidden for review due to reports.",reportGone:"This entry has already been handled.",reportErr:"Report failed.",posted:"Submitted! It's now live in the ranking.",demoReport:"Demo report received (nothing saved)."},
+  ja:{reportBtn:"🚩 通報",reportConfirm:"この作品を通報しますか？不適切・盗用・規約違反のみ通報してください。",reportReason:"理由(任意)",reportDone:"通報を受け付けました。",reportDup:"すでに通報済みの作品です。",reportLimit:"通報が多すぎます。しばらくして再度お試しください。",reportHidden:"通報が累積し、確認待ちに切り替わりました。",reportGone:"すでに処理済みの作品です。",reportErr:"通報に失敗しました。",posted:"登録されました！ランキングに即時反映されます。",demoReport:"テスト通報を受け付けました(反映なし)。"},
+  "zh-CN":{reportBtn:"🚩 举报",reportConfirm:"要举报该作品吗？请仅举报不当·盗用·违规内容。",reportReason:"举报理由(可选)",reportDone:"已收到举报。",reportDup:"你已举报过该作品。",reportLimit:"举报过于频繁，请稍后再试。",reportHidden:"举报累积，已转入待审核。",reportGone:"该作品已被处理。",reportErr:"举报失败。",posted:"已登记！即时反映到排名。",demoReport:"测试举报已收到(未写入)。"},
+  "zh-TW":{reportBtn:"🚩 檢舉",reportConfirm:"要檢舉該作品嗎？請僅檢舉不當·盜用·違規內容。",reportReason:"檢舉理由(可選)",reportDone:"已收到檢舉。",reportDup:"你已檢舉過該作品。",reportLimit:"檢舉過於頻繁，請稍後再試。",reportHidden:"檢舉累積，已轉入待審核。",reportGone:"該作品已被處理。",reportErr:"檢舉失敗。",posted:"已登記！即時反映到排名。",demoReport:"測試檢舉已收到(未寫入)。"}
+};
+function tx(k){ return (TALENT_X[lang]||TALENT_X.en)[k]; }
+async function reportTalent(id){
+  if(id==null||id==="") return;
+  if(!confirm(tx("reportConfirm"))) return;
+  if(TALENT_DEMO){ toast(tx("demoReport")); return; }
+  const reason=(prompt(tx("reportReason"))||"").slice(0,200);
+  try{
+    const S=CONFIG.supabase;
+    const r=await fetch(`${S.url}/rest/v1/rpc/meme_report`,{method:"POST",headers:{"Content-Type":"application/json","apikey":S.anonKey,"Authorization":"Bearer "+S.anonKey},body:JSON.stringify({p_entry_id:Number(id),p_reason:reason})});
+    let status=""; try{ status=String(await r.json()??"").replace(/^"|"$/g,""); }catch(_){ status=""; }
+    if(!r.ok) throw new Error(status||"err");
+    if(status==="ok") toast(tx("reportDone"));
+    else if(status==="hidden"){ toast(tx("reportHidden")); loadTalent(); }
+    else if(status==="already_reported") toast(tx("reportDup"));
+    else if(status==="rate_limited") toast(tx("reportLimit"));
+    else if(status==="not_found") toast(tx("reportGone"));
+    else toast(tx("reportDone"));
+  }catch(e){ console.warn("report failed",e); toast(tx("reportErr")); }
+}
 function applyTalentI18n(){
   const T=talentText();
   document.querySelectorAll("[data-talent-i18n]").forEach(el=>{ const k=el.dataset.talentI18n; if(T[k]!=null) el.textContent=T[k]; });
@@ -5018,10 +5050,10 @@ function talentTeamBadge(teamId){
 }
 function talentCard(it,i){
   const medals=["🥇","🥈","🥉"], colors=["#D4A514","#A9B2BA","#B87333"];
-  return `<article class="talent-medal-card ${i===0?"first":""}" style="--medal:${colors[i]}"><div class="talent-medal-rank"><span class="emoji">${medals[i]}</span><span>${i+1}</span></div><div class="talent-medal-title">${esc(it.title)}</div><div class="talent-meta"><span>@${esc(it.username)}</span>${talentTeamBadge(it.team_id)}</div><div class="talent-like">♥ ${Number(it.like_count||0).toLocaleString()}</div><a class="talent-xlink" href="${esc(it.post_url)}" target="_blank" rel="noopener noreferrer">𝕏 ${esc(talentText().view)}</a></article>`;
+  return `<article class="talent-medal-card ${i===0?"first":""}" style="--medal:${colors[i]}"><div class="talent-medal-rank"><span class="emoji">${medals[i]}</span><span>${i+1}</span></div><div class="talent-medal-title">${esc(it.title)}</div><div class="talent-meta"><span>@${esc(it.username)}</span>${talentTeamBadge(it.team_id)}</div><div class="talent-like">♥ ${Number(it.like_count||0).toLocaleString()}</div><a class="talent-xlink" href="${esc(it.post_url)}" target="_blank" rel="noopener noreferrer">𝕏 ${esc(talentText().view)}</a><button type="button" class="talent-report" data-report-id="${esc(String(it.id))}">${esc(tx("reportBtn"))}</button></article>`;
 }
 function talentRow(it){
-  return `<article class="talent-row"><div class="talent-rank">${Number(it.rank||0)}</div><div class="talent-title">${esc(it.title)}</div><div class="talent-account">@${esc(it.username)}</div><div>${talentTeamBadge(it.team_id)}</div><div class="talent-like">♥ ${Number(it.like_count||0).toLocaleString()}</div><a class="talent-xlink" href="${esc(it.post_url)}" target="_blank" rel="noopener noreferrer">${esc(talentText().view)}</a></article>`;
+  return `<article class="talent-row"><div class="talent-rank">${Number(it.rank||0)}</div><div class="talent-title">${esc(it.title)}</div><div class="talent-account">@${esc(it.username)}</div><div>${talentTeamBadge(it.team_id)}</div><div class="talent-like">♥ ${Number(it.like_count||0).toLocaleString()}</div><div class="talent-actions"><a class="talent-xlink" href="${esc(it.post_url)}" target="_blank" rel="noopener noreferrer">${esc(talentText().view)}</a><button type="button" class="talent-report" data-report-id="${esc(String(it.id))}">${esc(tx("reportBtn"))}</button></div></article>`;
 }
 function renderTalentFilters(){
   const box=$("#talentFilters"); if(!box) return; const T=talentText();
@@ -5041,6 +5073,7 @@ async function loadTalent(){
     // 첫 페이지의 TOP 3는 위 메달 섹션에서 이미 노출하므로 목록에서는 제외합니다.
     const visible=talentPage===1&&!talentTeam?entries.filter(x=>Number(x.rank)>3):entries;
     list.innerHTML=visible.length?visible.map(talentRow).join(""):`<div class="talent-empty">${esc(T.empty)}</div>`;
+    [podium,list].forEach(c=>c&&c.querySelectorAll("[data-report-id]").forEach(b=>b.onclick=()=>reportTalent(b.dataset.reportId)));
     const total=Number(talentData.total||0), pages=Math.max(1,Math.ceil(total/Number(CONFIG.talent.pageSize||30)));
     $("#talentCount").textContent=`${total.toLocaleString()} ${T.count}`;
     $("#talentUpdated").textContent=talentData.last_updated?`${T.updated} ${talentFormatDate(talentData.last_updated)}`:"";
@@ -5071,7 +5104,8 @@ async function submitTalentForm(e){
       const S=CONFIG.supabase;
       const r=await fetch(`${S.url}/functions/v1/${CONFIG.talent.submitFunction}`,{method:"POST",headers:{"Content-Type":"application/json","apikey":S.anonKey,"Authorization":"Bearer "+S.anonKey},body:JSON.stringify(payload)});
       const out=await r.json().catch(()=>({})); if(!r.ok||!out.ok) throw new Error(out.message||out.code||"submit_failed");
-      talentFormMessage(T.pending,"ok");
+      talentFormMessage(tx("posted"),"ok");
+      talentPage=1; talentTeam=""; loadTalent();
     }
     form.reset(); setTimeout(closeTalentModal,1800);
   }catch(err){console.warn(err);talentFormMessage(err.message&&err.message!=="submit_failed"?err.message:T.submitError,"err");}
