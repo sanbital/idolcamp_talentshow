@@ -27,13 +27,13 @@
       <div class="row"><label>검수 완료 수<input id="count" type="number" value="1" min="0" step="1"></label><label>직접 점수 <span class="muted">(비우면 자동)</span><input id="pointDelta" type="number" placeholder="예: 100"></label></div>
       <label>메모<textarea id="memo" placeholder="예: 7/15 공유 링크 검수 완료분"></textarea></label>
       <div class="actions"><button class="primary" id="addBtn">점수 반영</button></div>
-      <div class="notice">다짐 1개=10점 · 좋아요 1개=1점 · 공유하기 1회=50점. 장기자랑 점수는 계정 검수 완료 작품만 자동 합산되므로 수기 입력은 보정이 필요할 때만 사용하세요.</div>
+      <div class="notice">다짐 1개=10점 · 좋아요 1개=1점 · 공유하기 1회=50점. 장기자랑은 등록 즉시 자동 합산되고, 사후 계정 검수에서 반려되면 자동 회수됩니다. 수기 입력은 보정이 필요할 때만 사용하세요.</div>
     </section>
     <section class="card"><h2>현재 합산 스코어</h2><div id="scoreList" class="score-list"></div></section>
   </div>
 
   <section class="card" id="talentAdmin">
-    <div class="toolbar"><div style="flex:1"><h2 style="margin:0">🎭 짤 장기자랑 운영</h2><div class="muted">콘텐츠는 자동 승인되지만, 계정 검수 완료 전에는 순위·점수·신고 권한이 활성화되지 않습니다.</div></div><button class="ghost" id="syncXBtn">X 좋아요 동기화</button><button class="warn" id="freezeBtn">예선 동결·TOP 10 확정</button></div>
+    <div class="toolbar"><div style="flex:1"><h2 style="margin:0">🎭 짤 장기자랑 운영</h2><div class="muted">작품은 등록 즉시 순위와 팀 점수에 반영됩니다. 뮤니버스 계정·X 팔로우는 사후 검수하며, 반려 시 작품과 점수를 자동 제외합니다.</div></div><button class="ghost" id="syncXBtn">X 좋아요 동기화</button><button class="warn" id="freezeBtn">예선 동결·TOP 10 확정</button></div>
     <div class="summary" id="memeSummary" style="margin-top:14px"></div>
     <div class="notice">예선 등록 마감은 8/7 23:59, 좋아요 집계 마감은 8/10 11:59입니다. 최종 X 동기화 후 TOP 10을 확정하세요.</div>
   </section>
