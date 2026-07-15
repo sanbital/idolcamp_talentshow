@@ -31,6 +31,7 @@ window.MUNIVERSE_CONFIG = {
   talent: {
     enabled: true,
     previewBeforeStart: true,   // 테스트: 시작일 전에도 탭 보이게
+    testRegistrationOpen: true, // 테스트: 표시 일정과 무관하게 등록 폼을 지금 엽니다.
     pageSize: 30,
     maxEntriesPerAuthor: 3,
     maxFinalistsPerAuthor: 1,
@@ -39,11 +40,8 @@ window.MUNIVERSE_CONFIG = {
     finalWinnerScore: 10000000,
     leaderboardRefreshMs: 300000,
 
-    // 실제 운영 일정. previewBeforeStart=true 이므로 시작 전에도 화면은 확인할 수 있습니다.
-    // 실제 등록 검증(X API)까지 테스트하려면 아래 세 곳의 기간이 서로 같아야 합니다.
-    //     1) 이 config 의 preliminaryStart/End
-    //     2) Edge Function Secret 의 MEME_PRELIM_START / MEME_PRELIM_END
-    //     3) DB meme_event_settings 의 preliminary_start / preliminary_end
+    // 실제 운영 일정은 그대로 표시됩니다. 서버 등록 개방은 DB의
+    // meme_event_settings.registration_open_override 값으로 제어합니다.
     preliminaryStart: "2026-07-17T18:00:00+09:00",
     preliminaryEnd:   "2026-08-07T23:59:59+09:00",
     preliminaryCountEnd: "2026-08-10T11:59:59+09:00",
