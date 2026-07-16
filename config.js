@@ -14,9 +14,9 @@ window.MUNIVERSE_CONFIG = {
   shareUrl: "https://sanbital.github.io/idolcamp-talent-test/",
   gisu: 1, maxShown: 1000,
 
-  // 전 과정 테스트: 실제 테스트 DB의 점수판을 읽어 등록 직후 합산까지 확인합니다.
-  // DB 연결이 없는 순수 UI 샘플이 필요할 때만 true로 바꾸세요.
-  scoreboardDemo: false,
+  // 테스트 페이지의 점수판은 실DB 대신 아래 샘플을 사용합니다.
+  // 장기자랑 점수가 기존 다짐·좋아요·공유 점수와 합산되는 모습을 확인할 수 있습니다.
+  scoreboardDemo: true,
   scoreboardDemoRows: [
     { team_id:"ahof",          team_name:"AHOF",             pledge_score:126400, like_score:84210, share_score:186500, meme_score:1450000, worldcup_score:0, bonus_score:0, penalty_score:0 },
     { team_id:"closeyoureyes",team_name:"CLOSE YOUR EYES",  pledge_score:139800, like_score:91340, share_score:201000, meme_score:1210000, worldcup_score:0, bonus_score:0, penalty_score:0 },
@@ -38,7 +38,8 @@ window.MUNIVERSE_CONFIG = {
     registrationScore: 10000,
     likeScore: 100,
     finalWinnerScore: 10000000,
-    // X 좋아요 동기화 주기와 맞춰 공개 순위도 10분마다 다시 읽습니다.
+    // 공개 화면은 순위 캐시만 10분마다 다시 읽습니다.
+    // 실제 X 좋아요 동기화도 Supabase Cron에서 10분마다 실행합니다.
     leaderboardRefreshMs: 600000,
 
     // 실제 운영 일정은 그대로 표시됩니다. 서버 등록 개방은 DB의

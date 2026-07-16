@@ -3,9 +3,6 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
 <title>아이돌 수련회 1기 입소 신고 · Muniverse</title>
 <meta name="description" content="아이돌 수련회 1기 입소 신고 — 나만의 입소 신고증을 발급받고 SNS에 공유하세요." />
 <meta property="og:title" content="아이돌 수련회 1기 입소 신고" />
@@ -16,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Jua&family=Gaegu:wght@700&display=swap" rel="stylesheet" />
 <!-- 🔑 연결 설정: config.js 파일의 키값만 채우면 됩니다 (아래 파일이 없어도 정상 동작) -->
-<script src="config.js?v=20260715-5" onerror="window.__noConfig=1"></script>
+<script src="config.js" onerror="window.__noConfig=1"></script>
 <!-- Cloudflare Turnstile: 봇 방지 캡차 (사이트키는 config.js 의 turnstileSiteKey 로 주입) -->
 <script>
   window.__turnstileWidgetId = null;
@@ -3000,52 +2997,18 @@
   .talent-primary:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(15,59,58,.25)}
   .talent-primary[disabled]{opacity:.45;cursor:not-allowed;filter:grayscale(.4)}
   .talent-secondary{border:2px solid rgba(15,59,58,.28);background:#fff;color:#0f3b3a;padding:13px 18px;font-size:15.5px}
-  .talent-period-box{position:relative;z-index:1;overflow:hidden;margin:17px 0 15px;padding:22px 22px 18px;border:2px solid #496f45;border-radius:17px;background:repeating-linear-gradient(0deg,rgba(106,95,44,.035) 0,rgba(106,95,44,.035) 1px,transparent 1px,transparent 25px),linear-gradient(135deg,#fff9d9 0%,#fff4c5 62%,#f4edb5 100%);box-shadow:inset 0 0 0 5px rgba(255,255,255,.42),0 5px 0 rgba(64,91,51,.16)}
-  .talent-period-box:before,.talent-period-box:after{position:absolute;z-index:0;color:#d2a32b;opacity:.65;font-size:25px;font-weight:900;transform:rotate(-10deg)}
-  .talent-period-box:before{content:"♪  ★";right:25px;top:19px}
-  .talent-period-box:after{content:"☀";right:22px;bottom:17px;color:#e48c4c;font-size:31px;transform:rotate(12deg)}
-  .talent-roadmap-head{position:relative;z-index:1;display:flex;align-items:center;gap:14px;margin:0 0 18px;padding:0 58px 15px 0;border-bottom:3px double rgba(73,111,69,.32);color:#315544}
-  .talent-roadmap-head>span{flex:0 0 auto;padding:8px 14px 8px 12px;background:#0f3b3a;color:#fff;clip-path:polygon(0 0,100% 0,91% 50%,100% 100%,0 100%,7% 50%);font-size:10px;font-weight:950;letter-spacing:.12em;transform:rotate(-2deg)}
-  .talent-roadmap-head div{display:flex;min-width:0;align-items:baseline;gap:10px;flex-wrap:wrap}
-  .talent-roadmap-head strong{color:#123a2e;font-size:23px;font-weight:950;letter-spacing:-.7px;line-height:1.15}
-  .talent-roadmap-head em{color:#6b744d;font-size:12px;font-style:normal;font-weight:850}
-  .talent-roadmap{position:relative;z-index:1;display:flex;flex-direction:column}
-  .talent-roadmap:before{content:"";position:absolute;z-index:0;left:38px;top:43px;bottom:43px;width:4px;border-radius:999px;background:repeating-linear-gradient(180deg,#0f3b3a 0 10px,transparent 10px 16px);opacity:.32}
-  .talent-period-card{position:relative;z-index:1;display:grid;grid-template-columns:78px minmax(0,1fr);gap:13px;min-width:0;padding:3px 0;background:transparent;border:0}
-  .talent-stage-pin{align-self:start;display:grid;place-items:center;width:70px;height:70px;border:3px solid #fff7d4;border-radius:43% 57% 46% 54%/53% 42% 58% 47%;background:#0f3b3a;color:#fff;box-shadow:0 0 0 3px #0f3b3a,0 5px 0 rgba(15,59,58,.16);transform:rotate(-5deg)}
-  .talent-period-card.final .talent-stage-pin{background:#d47a32;box-shadow:0 0 0 3px #d47a32,0 5px 0 rgba(94,49,16,.15);transform:rotate(5deg)}
-  .talent-stage-pin b{font-size:10px;letter-spacing:.1em;line-height:1}
-  .talent-stage-pin span{font-size:25px;line-height:1}
-  .talent-stage-body{min-width:0;padding:2px 0 17px;border-bottom:2px dashed rgba(73,111,69,.29)}
-  .talent-period-card.final .talent-stage-body{padding-top:5px;border-bottom:0}
-  .talent-period-head{display:flex;gap:10px;align-items:center;margin-bottom:11px}
-  .talent-period-title{min-width:0}
-  .talent-period-title span{display:block;margin-bottom:1px;color:#7c7757;font-size:9.5px;font-weight:950;letter-spacing:.14em}
-  .talent-period-title h2{margin:0;color:#123a2e;font-size:21px;font-weight:950;letter-spacing:-.55px;line-height:1.2}
-  .talent-phase-badge{font-family:"Pretendard","Noto Sans KR",system-ui,sans-serif;font-weight:850;font-size:11.5px;letter-spacing:-.2px;border:2px solid #0f3b3a;border-radius:999px;background:#fff8ce;color:#0f3b3a;padding:5px 10px;transform:rotate(-2deg)}
-  .talent-phase-badge.final{border-color:#a85b00;background:#fff0bb;color:#8b4d08;transform:rotate(2deg)}
-  .talent-stage-details{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(260px,.95fr);gap:13px;align-items:stretch}
-  .talent-period-block{min-width:0;padding:12px 13px;border:0}
-  .talent-period-block h3{margin:0 0 7px;color:#607259;font-size:10.5px;font-weight:950;letter-spacing:.08em}
-  .talent-period-list{display:grid;gap:5px;margin:0;padding:0;list-style:none;color:#294f40;font-size:12.5px;font-weight:800;line-height:1.5}
-  .talent-period-list li{position:relative;padding-left:16px;word-break:keep-all;overflow-wrap:break-word}
-  .talent-period-list li:before{content:"★";position:absolute;left:0;top:.05em;color:#3a9d83;font-size:9px}
-  .talent-period-card.final .talent-period-list li:before{content:"✦";color:#d47a32;font-size:11px}
-  .talent-period-method{display:flex;align-items:flex-start;gap:8px;margin-top:9px;padding:7px 2px 0;color:#315544;font-size:12px;font-weight:850;line-height:1.5}
-  .talent-period-card.final .talent-period-method{color:#704512}
-  .talent-period-method b{flex:0 0 auto;padding:2px 7px;border-radius:999px;background:#315e4b;color:#fff;font-size:9px;letter-spacing:.06em}
-  .talent-period-card.final .talent-period-method b{background:#bb6a29}
-  .talent-period-rewards{position:relative;border:2px solid rgba(201,146,36,.34);border-radius:5px;background:#fff0ad;box-shadow:3px 3px 0 rgba(176,128,31,.13);transform:rotate(.35deg)}
-  .talent-period-rewards:before,.talent-period-rewards:after{content:"";position:absolute;top:-7px;width:35px;height:13px;background:rgba(255,255,255,.55);box-shadow:0 0 0 1px rgba(161,121,45,.09);transform:rotate(-5deg)}
-  .talent-period-rewards:before{left:14px}.talent-period-rewards:after{right:14px;transform:rotate(6deg)}
-  .talent-period-card.final .talent-period-rewards{border-color:rgba(218,114,85,.34);background:#ffdcca;transform:rotate(-.35deg)}
-  .talent-period-rewards h3{color:#74530d}
-  .talent-roadmap-connector{position:relative;z-index:2;display:flex;align-items:center;gap:10px;width:max-content;max-width:calc(100% - 90px);margin:9px 0 10px 90px;padding:8px 20px 8px 14px;border:2px dashed #b46d26;border-radius:5px;background:#fff9e7;color:#7a4516;box-shadow:2px 3px 0 rgba(122,69,22,.12);text-align:left;transform:rotate(-1deg)}
-  .talent-roadmap-connector:before,.talent-roadmap-connector:after{content:"";position:absolute;left:-8px;width:14px;height:14px;border-radius:50%;background:#f6edbd}
-  .talent-roadmap-connector:before{top:-8px}.talent-roadmap-connector:after{bottom:-8px}
-  .talent-roadmap-connector i{display:grid;width:28px;height:28px;place-items:center;border-radius:50%;background:#d47a32;color:#fff;font-size:14px;font-style:normal;box-shadow:0 2px 0 rgba(113,55,13,.18)}
-  .talent-roadmap-connector span{font-size:11px;font-weight:950;line-height:1.35;letter-spacing:-.1px}
-  .talent-test-open{position:relative;z-index:1;margin:12px 0 0 90px;padding:8px 12px;border:0;border-left:4px solid #3f8e65;background:rgba(255,255,255,.48);color:#286044;font-size:11.5px;font-weight:900;text-align:left;transform:rotate(.2deg)}
+  .talent-period-box{margin:12px 0 16px;padding:12px;border-radius:16px;background:rgba(15,59,58,.065);border:1.5px solid rgba(15,59,58,.16)}
+  .talent-period-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .talent-period-card{min-width:0;padding:13px 14px;border-radius:13px;background:rgba(255,255,255,.7);border:1.5px solid rgba(15,59,58,.14)}
+  .talent-period-card.final{background:#FFF8E2;border-color:rgba(168,91,0,.23)}
+  .talent-period-card.active{border-color:#0f3b3a;box-shadow:inset 0 0 0 1px #0f3b3a}
+  .talent-period-card.final.active{border-color:#a85b00;box-shadow:inset 0 0 0 1px #a85b00}
+  .talent-period-head{display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:#264d3e;font-size:12.5px;line-height:1.45}
+  .talent-period-head strong{font-weight:900}
+  .talent-period-card p{margin:8px 0 0;color:#48685a;font-size:12px;font-weight:750;line-height:1.55;word-break:keep-all}
+  .talent-phase-badge{font-family:"Pretendard","Noto Sans KR",system-ui,sans-serif;font-weight:800;font-size:12.5px;letter-spacing:-.3px;border-radius:999px;background:#0f3b3a;color:#fff;padding:7px 12px}
+  .talent-phase-badge.final{background:#a85b00}
+  .talent-test-open{margin-top:10px;padding:8px 11px;border-radius:10px;background:#DCFCE7;color:#166534;font-size:12px;font-weight:900;text-align:center}
   .talent-section{margin-top:20px;background:#fff;border:2px solid rgba(15,59,58,.12);border-radius:22px;padding:20px;box-shadow:0 7px 0 rgba(15,59,58,.08)}
   .talent-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:14px}
   .talent-section h2{margin:0;color:#123a2e;font-size:20px;font-weight:950}
@@ -3137,43 +3100,16 @@
   }
   @media (max-width:640px){
     .talent-wrap{margin-top:12px}
-    .talent-hero{padding:19px 14px;border-radius:20px}
-    .talent-hero:after{font-size:51px;right:5px;top:8px}
-    .talent-hero h1{max-width:285px;font-size:clamp(26px,8vw,32px);letter-spacing:-.8px;line-height:1.16}
-    .talent-hero>p{font-size:13px;padding-right:0;line-height:1.62}
-    .talent-period-box{margin:15px 0 14px;padding:18px 12px 15px;border-radius:15px}
-    .talent-period-box:before{right:12px;top:13px;font-size:19px}.talent-period-box:after{display:none}
-    .talent-roadmap-head{display:block;margin-bottom:16px;padding:0 45px 13px 2px}
-    .talent-roadmap-head>span{display:inline-block;margin-bottom:9px;padding:6px 12px;font-size:8.5px}
-    .talent-roadmap-head div{display:block}
-    .talent-roadmap-head strong{display:block;font-size:20px;line-height:1.2}
-    .talent-roadmap-head em{display:block;margin-top:4px;font-size:11px;line-height:1.45}
-    .talent-roadmap:before{left:25px;top:35px;bottom:40px;width:3px}
-    .talent-period-card{grid-template-columns:52px minmax(0,1fr);gap:8px;padding:0}
-    .talent-stage-pin{width:46px;height:46px;border-width:2px;box-shadow:0 0 0 2px #0f3b3a,0 3px 0 rgba(15,59,58,.14)}
-    .talent-period-card.final .talent-stage-pin{box-shadow:0 0 0 2px #d47a32,0 3px 0 rgba(94,49,16,.14)}
-    .talent-stage-pin b{font-size:7px}.talent-stage-pin span{font-size:17px}
-    .talent-stage-body{padding:1px 0 15px}
-    .talent-period-head{align-items:center;gap:7px;margin-bottom:8px}
-    .talent-phase-badge{padding:4px 7px;font-size:9.5px}
-    .talent-period-title span{font-size:8px}
-    .talent-period-title h2{font-size:17px;line-height:1.25}
-    .talent-stage-details{grid-template-columns:1fr;gap:8px}
-    .talent-period-block{padding:9px 8px}
-    .talent-period-list{gap:4px;font-size:11.5px;line-height:1.55}
-    .talent-period-list li{padding-left:14px;word-break:normal}
-    .talent-period-method{margin-top:7px;padding-top:4px;font-size:11px}
-    .talent-period-rewards{margin:0 2px}
-    .talent-roadmap-connector{max-width:calc(100% - 59px);margin:9px 0 11px 59px;padding:7px 11px 7px 9px}
-    .talent-roadmap-connector i{width:24px;height:24px;font-size:12px}
-    .talent-roadmap-connector span{font-size:10px}
-    .talent-test-open{margin:11px 0 0 59px;padding:8px 9px;font-size:10.5px;line-height:1.45}
-    .talent-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-    .talent-actions .talent-primary,.talent-actions .talent-secondary{width:100%;min-width:0;padding:12px 8px;font-size:13.5px}
+    .talent-hero{padding:20px 16px;border-radius:20px}
+    .talent-hero:after{font-size:56px;right:7px}
+    .talent-hero p{font-size:13.5px;padding-right:30px}
+    .talent-period-card p{padding-right:0}
+    .talent-actions .talent-primary,.talent-actions .talent-secondary{flex:1 1 140px}
     .talent-section{padding:15px 12px;border-radius:18px}
     .talent-section-head{align-items:flex-start;flex-direction:column}
     .talent-updated{text-align:left}
     .talent-form-grid{grid-template-columns:1fr}
+    .talent-period-grid{grid-template-columns:1fr}
     .talent-info-grid{grid-template-columns:1fr}
     .talent-field.full{grid-column:auto}
     .talent-mobile-register{display:block;position:fixed;z-index:80;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));width:calc(100% - 24px)}
@@ -3357,56 +3293,22 @@
   <div class="tab-panel" data-tab-panel="talent">
     <main class="talent-wrap" id="talentApp">
       <section class="talent-hero">
-        <div class="talent-kicker" data-talent-i18n="kicker">IDOL SCHOOL CAMP MEME TALENT SHOW</div>
-        <h1 data-talent-i18n="title">아이돌 수련회 짤 장기자랑</h1>
-        <p data-talent-i18n="intro">웃음부터 감동까지, 〈아이돌 수련회〉에서 가장 기억에 남은 순간을 입소생 여러분만의 센스로 짤로 완성해 주세요!</p>
+        <div class="talent-kicker" data-talent-i18n="kicker">IDOL CAMP TALENT SHOW</div>
+        <h1 data-talent-i18n="title">아이돌 수련회 장기자랑</h1>
         <div class="talent-period-box">
-          <div class="talent-roadmap-head"><span>⛺ CAMP PROGRAM</span><div><strong data-talent-i18n="programTitle">장기자랑 진행표</strong><em data-talent-i18n="flowTitle">첫 무대부터 마지막 밤까지</em></div></div>
-          <div class="talent-roadmap">
+          <div class="talent-period-grid">
             <article class="talent-period-card" id="talentPreliminaryCard">
-              <div class="talent-stage-pin" aria-hidden="true"><b>STAGE 01</b><span>🎤</span></div>
-              <div class="talent-stage-body">
-                <div class="talent-period-head">
-                  <span class="talent-phase-badge" data-talent-i18n="preliminaryLabel">예선</span>
-                  <div class="talent-period-title"><span>FIRST STAGE</span><h2 data-talent-i18n="preliminaryCardTitle">X 좋아요 예선 무대</h2></div>
-                </div>
-                <div class="talent-stage-details">
-                  <div class="talent-period-block">
-                    <h3 data-talent-i18n="periodTitle">무대 일정</h3>
-                    <ul class="talent-period-list" id="talentPreliminaryHeroSchedule"></ul>
-                    <div class="talent-period-method"><b data-talent-i18n="methodTitle">진행</b><span data-talent-i18n="preliminaryMethod">X 게시물 좋아요 수로 순위를 집계합니다.</span></div>
-                  </div>
-                  <div class="talent-period-block talent-period-rewards">
-                    <h3 data-talent-i18n="preliminaryRewardTitle">🎁 예선 선물</h3>
-                    <ul class="talent-period-list" id="talentPreliminaryHeroRewards"></ul>
-                  </div>
-                </div>
-              </div>
+              <div class="talent-period-head"><span class="talent-phase-badge" data-talent-i18n="preliminaryLabel">예선</span><strong data-talent-i18n="preliminarySchedule">7.17 18:00 – 8.10 11:59 KST</strong></div>
+              <p data-talent-i18n="preliminarySummary">등록은 8.7 23:59 마감 · X 좋아요는 8.10 11:59 최종 집계</p>
             </article>
-            <div class="talent-roadmap-connector" aria-hidden="true"><i>★</i><span data-talent-i18n="finalistsFlow">TOP 10 결선 진출권</span></div>
             <article class="talent-period-card final" id="talentFinalCard">
-              <div class="talent-stage-pin" aria-hidden="true"><b>STAGE 02</b><span>✨</span></div>
-              <div class="talent-stage-body">
-                <div class="talent-period-head">
-                  <span class="talent-phase-badge final" data-talent-i18n="finalLabel">결선</span>
-                  <div class="talent-period-title"><span>LAST NIGHT</span><h2 data-talent-i18n="finalCardTitle">뮤니버스 앱 결선 무대</h2></div>
-                </div>
-                <div class="talent-stage-details">
-                  <div class="talent-period-block">
-                    <h3 data-talent-i18n="periodTitle">무대 일정</h3>
-                    <ul class="talent-period-list" id="talentFinalHeroSchedule"></ul>
-                    <div class="talent-period-method"><b data-talent-i18n="methodTitle">진행</b><span data-talent-i18n="finalMethod">예선 TOP 10을 뮤니버스 앱 투표로 결정합니다.</span></div>
-                  </div>
-                  <div class="talent-period-block talent-period-rewards">
-                    <h3 data-talent-i18n="finalRewardTitle">🏆 결선 선물</h3>
-                    <ul class="talent-period-list" id="talentFinalHeroRewards"></ul>
-                  </div>
-                </div>
-              </div>
+              <div class="talent-period-head"><span class="talent-phase-badge final" data-talent-i18n="finalLabel">결선</span><strong data-talent-i18n="finalSchedule">8.11 10:00 – 8.17 17:00 KST</strong></div>
+              <p data-talent-i18n="finalSummary">예선 TOP 10이 뮤니버스 앱 투표로 최종 순위를 가립니다.</p>
             </article>
           </div>
-          <div class="talent-test-open" id="talentTestOpenNotice" data-talent-i18n="testOpen">● 테스트 페이지 · 일정과 관계없이 지금 등록 가능</div>
+          <div class="talent-test-open" id="talentTestOpenNotice" data-talent-i18n="testOpen" hidden>테스트 페이지 · 지금 등록 가능</div>
         </div>
+        <p data-talent-i18n="intro">〈아이돌 수련회〉 최고의 순간을 나만의 장기자랑으로 만들어 X에 올려주세요!</p>
         <div class="talent-rules">
           <div class="talent-rule"><span class="talent-rule-ic">📝</span><span><b>+10,000<span data-talent-i18n="unit">점</span></b><span data-talent-i18n="ruleRegister">유효 작품 등록 점수</span></span></div>
           <div class="talent-rule"><span class="talent-rule-ic">♥</span><span><b>+100<span data-talent-i18n="unit">점</span></b><span data-talent-i18n="ruleLike">X 좋아요 1개당</span></span></div>
@@ -3458,8 +3360,8 @@
         <div class="talent-form-grid">
           <div class="talent-field"><label for="talentTeam" data-talent-i18n="teamLabel">응원 팀</label><select id="talentTeam" required></select></div>
           <div class="talent-field"><label for="talentTitle" data-talent-i18n="titleLabel">작품 제목</label><input id="talentTitle" type="text" minlength="2" maxlength="60" required autocomplete="off"></div>
-          <div class="talent-field full"><label for="talentMuniverseAccount" data-talent-i18n="muniverseAccountLabel">가입한 뮤니버스 계정</label><input id="talentMuniverseAccount" type="text" minlength="2" maxlength="100" required autocomplete="username" placeholder="가입한 뮤니버스 계정을 입력하세요"><div class="talent-help" data-talent-i18n="muniverseAccountHelp">가입 여부와 뮤니버스 공식 X 팔로우 여부 확인에 사용됩니다.</div></div>
-          <div class="talent-field full"><label for="talentUrl" data-talent-i18n="urlLabel">X 게시물 주소</label><input id="talentUrl" type="url" placeholder="https://x.com/username/status/123..." required autocomplete="off"><div class="talent-help" data-talent-i18n="urlHelp">X 계정명과 프로필 주소는 게시물 URL에서 자동으로 불러옵니다.</div></div>
+          <div class="talent-field full"><label for="talentMuniverseAccount" data-talent-i18n="muniverseAccountLabel">뮤니버스 계정</label><input id="talentMuniverseAccount" type="text" minlength="2" maxlength="100" required autocomplete="username" placeholder="뮤니버스 관리자에서 확인 가능한 계정"><div class="talent-help" data-talent-i18n="muniverseAccountHelp">허위 계정은 순위·점수·리워드 대상에서 자동 제외됩니다.</div></div>
+          <div class="talent-field full"><label for="talentUrl" data-talent-i18n="urlLabel">X 게시물 주소</label><input id="talentUrl" type="url" placeholder="https://x.com/username/status/123..." required autocomplete="off"><div class="talent-help" data-talent-i18n="urlHelp">게시물 주소를 기준으로 X 계정명과 프로필 주소가 자동 등록됩니다.</div></div>
         </div>
         <div class="talent-consents">
           <label><input type="checkbox" id="talentConsentPublic" required><span data-talent-i18n="consentPublic">게시물이 전체 공개 상태이며 결선 종료일까지 공개 상태를 유지합니다.</span></label>
@@ -3516,7 +3418,7 @@ const CONFIG = {
   shareUrl: _CFG.shareUrl || "",        // 이벤트 페이지 URL (config.js에서 채우면 X 공유에 포함)
   turnstileSiteKey: _CFG.turnstileSiteKey || "",   // Cloudflare Turnstile 사이트 키(공개키). 비우면 캡차 미사용.
   talent: Object.assign({
-    enabled:false, previewBeforeStart:false, testRegistrationOpen:true, pageSize:30, maxEntriesPerAuthor:3, maxFinalistsPerAuthor:1,
+    enabled:false, previewBeforeStart:false, testRegistrationOpen:false, pageSize:30, maxEntriesPerAuthor:3, maxFinalistsPerAuthor:1,
     registrationScore:10000, likeScore:100, finalWinnerScore:10000000, leaderboardRefreshMs:600000,
     preliminaryStart:"2026-07-17T18:00:00+09:00", preliminaryEnd:"2026-08-07T23:59:59+09:00",
     preliminaryCountEnd:"2026-08-10T11:59:59+09:00",
@@ -5143,30 +5045,29 @@ async function logEnrollment(){
    ======================================================================== */
 const TALENT_DEMO = new URLSearchParams(location.search).get("talentDemo")==="1";
 const TALENT_I18N = {
-  ko:{kicker:"IDOL CAMP TALENT SHOW",title:"아이돌 수련회 짤 장기자랑",intro:"가장 재미있게 본 〈아이돌 수련회〉의 순간을 입소생 여러분의 창의력과 센스로 짤로 만들어, 수련회의 재미와 위상을 널리 알려주세요!",ruleRegister:"X 참여 1회당",ruleLike:"X 좋아요 1개당",ruleWinner:"결선 1위 팀 보너스",register:"장기자랑 등록하기",guide:"참여 방법 보기",guideTitle:"참여 방법",guideSub:"참여 순서와 운영 원칙을 확인하세요.",topTitle:"🏅 인기 작품 TOP 3",topSub:"X 좋아요가 가장 많은 작품입니다.",rankingTitle:"전체 순위",rankingSub:"한 페이지에 30개씩 표시됩니다.",formTitle:"장기자랑 등록하기",teamLabel:"응원 팀",titleLabel:"작품 제목",urlLabel:"X 게시물 주소",urlHelp:"게시물 주소를 기준으로 X 계정명과 프로필 주소가 자동 등록됩니다.",consentPublic:"게시물이 전체 공개 상태이며 결선 종료일까지 공개 상태를 유지합니다.",consentRights:"본인이 제작했거나 등록 권한을 가진 작품이며 이벤트 활용에 동의합니다.",consentOwner:"본인이 게시자가 아닌 경우 게시자의 요청에 따라 등록이 삭제될 수 있으며, 점수 인정이 취소될 수 있습니다.",consentRules:"운영 규정 위반 또는 부정 참여가 확인되면 등록과 점수가 취소될 수 있습니다.",submit:"등록하기",view:"X에서 보기",all:"전체",loading:"순위를 불러오는 중입니다.",empty:"등록된 작품이 없습니다.",prev:"이전",next:"다음",count:"작품",updated:"마지막 집계",pending:"등록되었습니다. 운영진 승인 후 순위와 점수에 반영됩니다.",demoPending:"테스트 등록이 완료되었습니다. 실제 DB에는 저장되지 않았습니다.",submitError:"등록에 실패했습니다. 입력 내용과 게시물 공개 상태를 확인해주세요.",closed:"현재 등록 기간이 아닙니다.",prelim:"🗓 장기자랑 예선",review:"🗓 결선 검수",final:"🗓 뮤니버스 결선",ended:"🗓 종료",unit:"점",phaseNote:"예선은 X(트위터) 좋아요 수로 진행되고, 결선 TOP 10은 뮤니버스 앱 투표로 최종 순위를 가립니다.",warn:"⚠️ 〈아이돌 수련회〉와 무관하거나, 다른 참가자·아티스트에게 불쾌감을 줄 수 있는 장기자랑은 예고 없이 등록이 취소될 수 있습니다.",principlesTitle:"운영 원칙",principles:["예선(7/17 18:00~8/7 23:59, KST): X 좋아요 수로 순위를 매기며, X 참여 1회=10,000점·좋아요 1개=100점이 응원 팀에 반영됩니다.","결선(8/10~8/14, KST): 예선 TOP 10을 뮤니버스 앱 투표로 겨루며, 1위 장기자랑의 응원 팀에 2,000,000점이 반영됩니다.","X 계정 1개당 최대 3작품까지 등록할 수 있고, 결선에는 계정별 최고 순위 1작만 진출합니다.","신고가 10회 누적된 장기자랑은 자동으로 숨김 처리되어 순위·점수에서 제외되며, 운영진 검토 후 복구 또는 영구 삭제됩니다.","결선 당선 작품은 참여한 X 계정으로 DM을 통해 안내합니다. 단, 발표 시점에 비공개(잠금) 계정은 안내 대상에서 제외됩니다.","〈아이돌 수련회〉와 무관하거나, 다른 참가자·아티스트에게 불쾌감을 줄 수 있는 장기자랑, 타인 작품 도용은 예고 없이 등록이 취소될 수 있습니다."],guideSteps:["〈아이돌 수련회〉 방송 장면으로 이미지·GIF·영상 장기자랑을 제작합니다.","X에 응원 팀과 함께 전체 공개로 게시합니다.","작품 제목·응원 팀·X 게시물 주소를 등록하면 바로 순위에 반영됩니다.","X로 장기자랑에 참여할 때마다 10,000점, X 좋아요 1개마다 100점이 응원 팀에 반영됩니다."]},
+  ko:{kicker:"IDOL CAMP TALENT SHOW",title:"아이돌 수련회 장기자랑",intro:"〈아이돌 수련회〉 최고의 순간을 나만의 장기자랑으로 만들어 X에 올려주세요!",ruleRegister:"X 참여 1회당",ruleLike:"X 좋아요 1개당",ruleWinner:"결선 1위 팀 보너스",register:"장기자랑 등록하기",guide:"참여 방법 보기",guideTitle:"참여 방법",guideSub:"참여 순서와 운영 원칙을 확인하세요.",topTitle:"🏅 인기 작품 TOP 3",topSub:"X 좋아요가 가장 많은 작품입니다.",rankingTitle:"전체 순위",rankingSub:"한 페이지에 30개씩 표시됩니다.",formTitle:"장기자랑 등록하기",teamLabel:"응원 팀",titleLabel:"작품 제목",urlLabel:"X 게시물 주소",urlHelp:"게시물 주소를 기준으로 X 계정명과 프로필 주소가 자동 등록됩니다.",consentPublic:"게시물이 전체 공개 상태이며 결선 종료일까지 공개 상태를 유지합니다.",consentRights:"본인이 제작했거나 등록 권한을 가진 작품이며 이벤트 활용에 동의합니다.",consentOwner:"본인이 게시자가 아닌 경우 게시자의 요청에 따라 등록이 삭제될 수 있으며, 점수 인정이 취소될 수 있습니다.",consentRules:"운영 규정 위반 또는 부정 참여가 확인되면 등록과 점수가 취소될 수 있습니다.",submit:"등록하기",view:"X에서 보기",all:"전체",loading:"순위를 불러오는 중입니다.",empty:"등록된 작품이 없습니다.",prev:"이전",next:"다음",count:"작품",updated:"마지막 집계",pending:"등록되었습니다. 운영진 승인 후 순위와 점수에 반영됩니다.",demoPending:"테스트 등록이 완료되었습니다. 실제 DB에는 저장되지 않았습니다.",submitError:"등록에 실패했습니다. 입력 내용과 게시물 공개 상태를 확인해주세요.",closed:"현재 등록 기간이 아닙니다.",prelim:"🗓 장기자랑 예선",review:"🗓 결선 검수",final:"🗓 뮤니버스 결선",ended:"🗓 종료",unit:"점",phaseNote:"예선은 X(트위터) 좋아요 수로 진행되고, 결선 TOP 10은 뮤니버스 앱 투표로 최종 순위를 가립니다.",warn:"⚠️ 〈아이돌 수련회〉와 무관하거나, 다른 참가자·아티스트에게 불쾌감을 줄 수 있는 장기자랑은 예고 없이 등록이 취소될 수 있습니다.",principlesTitle:"운영 원칙",principles:["예선(7/17 18:00~8/7 23:59, KST): X 좋아요 수로 순위를 매기며, X 참여 1회=10,000점·좋아요 1개=100점이 응원 팀에 반영됩니다.","결선(8/10~8/14, KST): 예선 TOP 10을 뮤니버스 앱 투표로 겨루며, 1위 장기자랑의 응원 팀에 2,000,000점이 반영됩니다.","X 계정 1개당 최대 3작품까지 등록할 수 있고, 결선에는 계정별 최고 순위 1작만 진출합니다.","신고가 10회 누적된 장기자랑은 자동으로 숨김 처리되어 순위·점수에서 제외되며, 운영진 검토 후 복구 또는 영구 삭제됩니다.","결선 당선 작품은 참여한 X 계정으로 DM을 통해 안내합니다. 단, 발표 시점에 비공개(잠금) 계정은 안내 대상에서 제외됩니다.","〈아이돌 수련회〉와 무관하거나, 다른 참가자·아티스트에게 불쾌감을 줄 수 있는 장기자랑, 타인 작품 도용은 예고 없이 등록이 취소될 수 있습니다."],guideSteps:["〈아이돌 수련회〉 방송 장면으로 이미지·GIF·영상 장기자랑을 제작합니다.","X에 응원 팀과 함께 전체 공개로 게시합니다.","작품 제목·응원 팀·X 게시물 주소를 등록하면 바로 순위에 반영됩니다.","X로 장기자랑에 참여할 때마다 10,000점, X 좋아요 1개마다 100점이 응원 팀에 반영됩니다."]},
   en:{kicker:"IDOL CAMP TALENT SHOW",title:"Meme Talent Show",intro:"Turn your favorite IDOL SCHOOL CAMP moment into a meme and post it on X!",ruleRegister:"per X entry",ruleLike:"per X like",ruleWinner:"final winner bonus",register:"Submit a meme",guide:"How to join",guideTitle:"How to join",guideSub:"Include the required and team hashtags in your X post.",topTitle:"🏅 TOP 3 MEMES",topSub:"Ranked by likes on X.",rankingTitle:"All rankings",rankingSub:"30 entries per page.",formTitle:"Submit a meme",teamLabel:"Team",titleLabel:"Meme title",urlLabel:"X Post URL",urlHelp:"The X account and profile URL are verified automatically from the Post URL.",consentPublic:"The Post is public and will remain public through the final.",consentRights:"I created this work or have permission to submit it, and agree to event use.",consentOwner:"If I am not the publisher, the entry may be removed at the publisher's request and its score revoked.",consentRules:"The entry and score may be revoked for rule violations or manipulation.",submit:"Submit",view:"View on X",all:"All",loading:"Loading rankings.",empty:"No entries yet.",prev:"Previous",next:"Next",count:"entries",updated:"Last synced",pending:"Submitted. It will enter the ranking after review.",demoPending:"Demo submission complete. Nothing was saved to the live database.",submitError:"Submission failed. Check the form and the Post's visibility.",closed:"Submissions are currently closed.",prelim:"🗓 Talent Show Preliminary",review:"🗓 Finalist Review",final:"🗓 Muniverse Final",ended:"🗓 Ended",unit:" pts",phaseNote:"Preliminary rounds run on X likes; the Top 10 finalists are decided by voting in the Muniverse app.",warn:"⚠️ Entries unrelated to IDOL SCHOOL CAMP, or that others may find offensive or inappropriate, may be removed without notice.",principlesTitle:"Event Rules",principles:["Preliminary (Jul 17, 18:00 – Aug 7, 23:59 KST): ranked by X likes. Each X entry = 10,000 pts and each like = 100 pts for the team.","Final (Aug 10–Aug 14, KST): the Top 10 compete via voting in the Muniverse app; the winner's team gets 2,000,000 pts.","Up to 3 entries per X account; only each account's highest-ranked entry advances to the Top 10.","An entry reaching 10 reports is auto-hidden (removed from ranking and score) pending admin review.","Finalists are contacted via DM on the X account used to enter; accounts that are private at announcement are excluded.","Entries unrelated to IDOL SCHOOL CAMP, ones others may find offensive, or stolen works may be removed without notice."],guideSteps:["Create an image, GIF, or video from IDOL SCHOOL CAMP footage.","Post it publicly on X with your team.","Enter the title, team, and X Post URL — it appears in the ranking right away.","Each X entry earns 10,000 team points; every X like earns 100."]},
   ja:{kicker:"IDOL CAMP TALENT SHOW",title:"ミーム芸能大会",intro:"『アイドル修練会』の名場面をミームにしてXへ投稿してください！",ruleRegister:"X参加1回につき",ruleLike:"Xいいね1件につき",ruleWinner:"決選1位チームボーナス",register:"作品を登録",guide:"参加方法",guideTitle:"参加方法",guideSub:"必須ハッシュタグと応援チームのハッシュタグを入れてください。",topTitle:"🏅 人気作品 TOP 3",topSub:"Xのいいね数順です。",rankingTitle:"総合ランキング",rankingSub:"1ページ30件表示",formTitle:"作品を登録",teamLabel:"応援チーム",titleLabel:"作品タイトル",urlLabel:"X投稿URL",urlHelp:"XアカウントとプロフィールURLは投稿URLから自動確認されます。",consentPublic:"投稿は公開状態で、決選終了まで公開を維持します。",consentRights:"本人が制作した、または登録権限のある作品で、イベント利用に同意します。",consentOwner:"投稿者本人でない場合、投稿者の要請により削除され、点数が取り消されることがあります。",consentRules:"規定違反や不正参加が確認された場合、登録と点数が取り消されることがあります。",submit:"登録する",view:"Xで見る",all:"全体",loading:"ランキングを読み込み中です。",empty:"登録作品がありません。",prev:"前へ",next:"次へ",count:"作品",updated:"最終集計",pending:"登録されました。承認後に順位と点数へ反映されます。",demoPending:"テスト登録が完了しました。実DBには保存されていません。",submitError:"登録に失敗しました。入力と投稿の公開状態を確認してください。",closed:"現在は登録期間外です。",prelim:"🗓 芸能大会予選",review:"🗓 決選審査",final:"🗓 Muniverse決選",ended:"🗓 終了",unit:"点",phaseNote:"予選はXのいいね数で進行し、決選のTOP10はMuniverseアプリの投票で最終順位を決定します。",warn:"⚠️『アイドル修練会』と無関係、または他の参加者・アーティストが不快に感じ得る作品は予告なく取り消される場合があります。",principlesTitle:"運営ルール",principles:["予選(7/17 18:00〜8/7 23:59, KST)：Xのいいね数で順位を決定。X参加1回=10,000点、いいね1件=100点がチームに反映されます。","決選(8/10〜8/14, KST)：TOP10をMuniverseアプリ投票で競い、1位作品のチームに2,000,000点が反映されます。","Xアカウント1つにつき最大3作品、決選にはアカウント別最高順位の1作のみ進出します。","通報が10件累積した作品は自動的に非表示となり、順位・点数から除外されます(運営確認後に復元/削除)。","決選当選作品は参加したXアカウントへDMでご案内します。発表時点で非公開(鍵)アカウントは対象外です。","『アイドル修練会』と無関係、または他者が不快に感じ得る作品・盗用作品は予告なく取り消される場合があります。"],guideSteps:["番組の場面から画像・GIF・動画を制作します。","応援チームと一緒にXへ全体公開で投稿します。","タイトル・チーム・投稿URLを登録するとすぐにランキングへ反映されます。","Xで参加するたびに10,000点、Xいいね1件ごとに100点が加算されます。"]},
   "zh-CN":{kicker:"IDOL CAMP TALENT SHOW",title:"表情包才艺大赛",intro:"把《偶像训练营》的精彩瞬间制作成表情包并上传到X！",ruleRegister:"每次X参与",ruleLike:"每个X点赞",ruleWinner:"决赛冠军队奖励",register:"登记作品",guide:"参加方法",guideTitle:"参加方法",guideSub:"请添加指定话题标签和应援队标签。",topTitle:"🏅 人气作品 TOP 3",topSub:"按X点赞数排名。",rankingTitle:"全部排名",rankingSub:"每页显示30个作品。",formTitle:"登记作品",teamLabel:"应援队",titleLabel:"作品标题",urlLabel:"X帖子地址",urlHelp:"系统将根据帖子地址自动确认X账号及主页地址。",consentPublic:"帖子已公开，并将公开至决赛结束。",consentRights:"作品由本人制作或已获得登记授权，并同意活动使用。",consentOwner:"若本人不是发布者，可应发布者要求删除登记并取消分数。",consentRules:"如发现违规或作弊，登记和分数可能被取消。",submit:"登记作品",view:"前往X查看",all:"全部",loading:"正在加载排名。",empty:"暂无登记作品。",prev:"上一页",next:"下一页",count:"个作品",updated:"最后统计",pending:"已提交。审核通过后将反映到排名和分数。",demoPending:"测试登记完成，未写入正式数据库。",submitError:"登记失败，请检查输入内容和帖子公开状态。",closed:"当前不在登记期间。",prelim:"🗓 才艺大赛预赛",review:"🗓 决赛审核",final:"🗓 Muniverse决赛",ended:"🗓 结束",unit:"分",phaseNote:"预赛以X点赞数进行，决赛TOP10由Muniverse应用内投票决定最终排名。",warn:"⚠️ 与《偶像训练营》无关，或可能令他人感到不适的作品，可能不另行通知即被取消。",principlesTitle:"活动规则",principles:["预赛(7/17 18:00~8/7 23:59，KST)：按X点赞数排名。每次X参与=10,000分，每个点赞=100分计入应援队。","决赛(8/10~8/14，KST)：TOP10通过Muniverse应用投票，冠军作品的应援队获得2,000,000分。","每个X账号最多登记3个作品，决赛仅取各账号最高排名的1个作品。","被举报累计10次的作品将自动隐藏（从排名和分数中移除），经运营审核后恢复或删除。","决赛当选作品将通过参与时的X账号以私信(DM)通知。公布时处于非公开(锁定)的账号将被排除。","与《偶像训练营》无关、可能令他人不适或盗用的作品，可能不另行通知即被取消。"],guideSteps:["使用节目画面制作图片、GIF或视频。","与应援队一起在X上公开发布。","登记标题、队伍和X帖子地址后立即反映到排名。","每次通过X参与获得10,000分，每个X点赞再获得100分。"]},
   "zh-TW":{kicker:"IDOL CAMP TALENT SHOW",title:"迷因才藝大賽",intro:"把《偶像訓練營》的精彩瞬間製作成迷因並上傳到X！",ruleRegister:"每次X參與",ruleLike:"每個X按讚",ruleWinner:"決賽冠軍隊獎勵",register:"登記作品",guide:"參加方法",guideTitle:"參加方法",guideSub:"請加入指定主題標籤及應援隊標籤。",topTitle:"🏅 人氣作品 TOP 3",topSub:"依X按讚數排名。",rankingTitle:"全部排名",rankingSub:"每頁顯示30個作品。",formTitle:"登記作品",teamLabel:"應援隊",titleLabel:"作品標題",urlLabel:"X貼文網址",urlHelp:"系統將依貼文網址自動確認X帳號及個人頁網址。",consentPublic:"貼文為公開狀態，並將公開至決賽結束。",consentRights:"作品由本人製作或已獲登記授權，並同意活動使用。",consentOwner:"若本人不是發布者，可依發布者要求刪除登記並取消分數。",consentRules:"如發現違規或作弊，登記和分數可能被取消。",submit:"登記作品",view:"前往X查看",all:"全部",loading:"正在載入排名。",empty:"尚無登記作品。",prev:"上一頁",next:"下一頁",count:"個作品",updated:"最後統計",pending:"已提交。審核通過後將反映到排名和分數。",demoPending:"測試登記完成，未寫入正式資料庫。",submitError:"登記失敗，請檢查輸入內容及貼文公開狀態。",closed:"目前不在登記期間。",prelim:"🗓 才藝大賽預賽",review:"🗓 決賽審核",final:"🗓 Muniverse決賽",ended:"🗓 結束",unit:"分",phaseNote:"預賽以X按讚數進行，決賽TOP10由Muniverse應用內投票決定最終排名。",warn:"⚠️ 與《偶像訓練營》無關，或可能令他人感到不適的作品，可能不另行通知即被取消。",principlesTitle:"活動規則",principles:["預賽(7/17 18:00~8/7 23:59，KST)：按X按讚數排名。每次X參與=10,000分，每個按讚=100分計入應援隊。","決賽(8/10~8/14，KST)：TOP10透過Muniverse應用投票，冠軍作品的應援隊獲得2,000,000分。","每個X帳號最多登記3個作品，決賽僅取各帳號最高排名的1個作品。","被檢舉累計10次的作品將自動隱藏（從排名與分數中移除），經運營審核後恢復或刪除。","決賽當選作品將透過參與時的X帳號以私訊(DM)通知。公布時處於非公開(鎖定)的帳號將被排除。","與《偶像訓練營》無關、可能令他人不適或盜用的作品，可能不另行通知即被取消。"],guideSteps:["使用節目畫面製作圖片、GIF或影片。","與應援隊一起在X上公開發布。","登記標題、隊伍及X貼文網址後立即反映到排名。","每次透過X參與獲得10,000分，每個X按讚再獲得100分。"]}
 };
-Object.values(TALENT_I18N).forEach(x=>{x.kicker="IDOL SCHOOL CAMP MEME TALENT SHOW";});
 Object.assign(TALENT_I18N.ko,{
-  intro:"웃음부터 감동까지, 〈아이돌 수련회〉에서 가장 기억에 남은 순간을 입소생 여러분만의 센스로 짤로 완성해 주세요!",
   ruleRegister:"유효 작품 등록 점수",ruleWinner:"결선 1위 팀 보너스",
-  muniverseAccountLabel:"가입한 뮤니버스 계정",muniverseAccountHelp:"가입 여부와 뮤니버스 공식 X 팔로우 여부 확인에 사용됩니다.",urlHelp:"X 계정명과 프로필 주소는 게시물 URL에서 자동으로 불러옵니다.",
+  muniverseAccountLabel:"뮤니버스 계정",muniverseAccountHelp:"계정 확인이 끝난 작품만 순위·점수·리워드 대상이 됩니다. 허위 계정은 자동 제외됩니다.",
   consentFollow:"뮤니버스 공식 X 계정을 팔로우하고 있습니다.",
   guideSub:"참여 순서와 참가 안내를 확인하세요.",principlesTitle:"참가 안내",
-  preliminaryLabel:"예선",finalLabel:"결선",programTitle:"장기자랑 진행표",flowTitle:"첫 무대부터 마지막 밤까지",finalistsFlow:"TOP 10 결선 진출권",preliminaryCardTitle:"X 좋아요 예선 무대",finalCardTitle:"뮤니버스 앱 결선 무대",periodTitle:"무대 일정",methodTitle:"진행",rewardTitle:"리워드",preliminaryRewardTitle:"🎁 예선 선물",finalRewardTitle:"🏆 결선 선물",preliminaryMethod:"X 게시물 좋아요 수로 순위를 집계합니다.",finalMethod:"예선 TOP 10을 뮤니버스 앱 투표로 결정합니다.",testOpen:"● 테스트 페이지 · 일정과 관계없이 지금 등록 가능",
+  preliminaryLabel:"예선",finalLabel:"결선",preliminarySchedule:"7.17 18:00 – 8.10 11:59 KST",finalSchedule:"8.11 10:00 – 8.17 17:00 KST",
+  preliminarySummary:"등록은 8.7 23:59 마감 · X 좋아요는 8.10 11:59 최종 집계",finalSummary:"예선 TOP 10이 뮤니버스 앱 투표로 최종 순위를 가립니다.",testOpen:"테스트 페이지 · 지금 등록 가능",
   preliminaryTitle:"예선 일정·리워드",finalTitle:"결선 일정·리워드",
   phaseNote:"예선은 X 좋아요 수로 진행되며 8월 10일 11시 59분에 최종 집계합니다. TOP 10은 뮤니버스 앱 결선 투표로 최종 순위를 가립니다.",
   preliminaryInfo:["예선 시작: 7/17 18:00 KST","등록 마감: 8/7 23:59 KST","좋아요 집계 마감: 8/10 11:59 KST","유효 작품 등록만 해도 팀 점수 10,000점·X 좋아요 1개당 100점","각 팀별 예선 1~3위에게 그룹 사인 앨범 증정"],
   finalInfo:["결선: 8/11 10:00~8/17 17:00 KST","결선 1위 작품의 응원 팀에 10,000,000점 제공","최종 TOP 10 결선 진출자 10인에게 선택 팀 엽서 세트 증정","사인 앨범과 엽서 세트는 중복 수령 가능"],
-  guideSteps:["〈아이돌 수련회〉 방송 장면으로 이미지·GIF·영상 작품을 제작합니다.","뮤니버스 공식 X 계정을 팔로우하고, 응원 팀과 함께 X에 전체 공개로 게시합니다.","응원 팀·작품 제목·뮤니버스 계정·X 게시물 주소를 등록합니다.","등록 즉시 순위와 팀 점수에 반영되며, 사후 검수에서 미가입·미팔로우·허위 계정이 확인되면 제외됩니다."],
+  guideSteps:["〈아이돌 수련회〉 방송 장면으로 이미지·GIF·영상 작품을 제작합니다.","뮤니버스 공식 X 계정을 팔로우하고, 응원 팀과 함께 X에 전체 공개로 게시합니다.","응원 팀·작품 제목·뮤니버스 계정·X 게시물 주소를 등록합니다.","운영진의 계정 확인이 끝난 작품부터 순위와 팀 점수에 반영됩니다."],
   principles:["뮤니버스 가입과 뮤니버스 공식 X 계정 팔로우는 필수 조건입니다. 미가입 및 미팔로우 시 최종 산정에서 제외됩니다.","유효 작품 등록 1건=10,000점, X 좋아요 1개=100점이 응원 팀에 반영됩니다.","X 계정 1개당 최대 3작품까지 등록할 수 있고, 결선에는 계정별 최고 순위 1작만 진출합니다.","뮤니버스 계정과 X 계정은 1:1로 확인하며, 허위·불일치 계정은 순위·점수·리워드 대상에서 제외됩니다.","결선 당선 작품은 참여한 X 계정을 기준으로 안내합니다. 단, 발표 시점에 비공개(잠금) 계정은 안내 대상에서 제외됩니다.","신고가 10회 누적된 작품은 자동 숨김되며 운영진 검토 후 복구 또는 삭제됩니다.","〈아이돌 수련회〉와 무관하거나 타인에게 불쾌감을 줄 수 있는 작품·도용 작품은 예고 없이 취소될 수 있습니다."],
-  pending:"등록되었습니다! 순위와 팀 점수에 바로 반영됩니다. 계정은 사후 검수됩니다.",testServerClosed:"테스트 등록의 서버 설정이 닫혀 있습니다. registration_open_override를 true로 변경해주세요."
+  pending:"등록되었습니다. 뮤니버스 계정 확인 후 순위와 점수에 반영됩니다."
 });
 Object.assign(TALENT_I18N.en,{
-  ruleRegister:"valid entry",ruleWinner:"final winner team bonus",muniverseAccountLabel:"Your Muniverse account",muniverseAccountHelp:"Used to verify membership and whether you follow the official Muniverse X account.",urlHelp:"Your X account and profile are loaded automatically from the Post URL.",consentFollow:"I follow the official Muniverse account on X.",guideSub:"Check the participation steps and entry information.",principlesTitle:"Entry Information",preliminaryLabel:"Preliminary",finalLabel:"Final",programTitle:"Talent Show Program",flowTitle:"From the first stage to the final night",finalistsFlow:"TOP 10 Final Ticket",preliminaryCardTitle:"X Likes First Stage",finalCardTitle:"Muniverse App Final Stage",periodTitle:"Stage Schedule",methodTitle:"Format",rewardTitle:"Rewards",preliminaryRewardTitle:"🎁 Preliminary Prizes",finalRewardTitle:"🏆 Final Prizes",preliminaryMethod:"Ranked by likes on the submitted X Post.",finalMethod:"The Preliminary Top 10 compete by Muniverse app vote.",testOpen:"● Test page · Submissions are open regardless of schedule",preliminaryTitle:"Preliminary Schedule & Rewards",finalTitle:"Final Schedule & Rewards",phaseNote:"X likes are counted through Aug 10, 11:59 KST. The Top 10 advance to the Muniverse app final.",preliminaryInfo:["Starts: Jul 17, 18:00 KST","Entry deadline: Aug 7, 23:59 KST","Like count closes: Aug 10, 11:59 KST","10,000 team points per valid entry; 100 per X like","Signed group album for the Top 3 in each team"],finalInfo:["Aug 11, 10:00–Aug 17, 17:00 KST","10,000,000 points for the winning entry's team","A selected-team postcard set for all 10 finalists","Album and postcard rewards may be combined"],guideSteps:["Create an image, GIF, or video from IDOL SCHOOL CAMP.","Follow Muniverse on X and publish the entry publicly.","Submit your team, title, Muniverse account, and X Post URL.","Rankings and team points activate after account verification."],principles:["Muniverse membership and following the official Muniverse X account are mandatory; otherwise the entry is excluded from final calculation.","Each valid entry earns 10,000 team points and each X like earns 100.","Up to 3 entries per X account; only its highest-ranked entry can advance.","Muniverse and X accounts are verified as a one-to-one pair; false or mismatched accounts are excluded.","Finalists are contacted through the X account used to enter; private accounts at announcement are excluded.","An entry reaching 10 valid reports is hidden pending review.","Irrelevant, offensive, or stolen works may be removed without notice."],pending:"Submitted. Rankings and points activate after account verification."
+  ruleRegister:"valid entry",ruleWinner:"final winner team bonus",muniverseAccountLabel:"Muniverse account",muniverseAccountHelp:"Only verified account pairs qualify for rankings, points, and rewards.",consentFollow:"I follow the official Muniverse account on X.",guideSub:"Check the participation steps and entry information.",principlesTitle:"Entry Information",preliminaryLabel:"Preliminary",finalLabel:"Final",preliminarySchedule:"Jul 17, 18:00 – Aug 10, 11:59 KST",finalSchedule:"Aug 11, 10:00 – Aug 17, 17:00 KST",preliminarySummary:"Entries close Aug 7, 23:59 · X likes close Aug 10, 11:59",finalSummary:"The Preliminary Top 10 compete by Muniverse app vote.",testOpen:"Test page · Submissions are open now",preliminaryTitle:"Preliminary Schedule & Rewards",finalTitle:"Final Schedule & Rewards",phaseNote:"X likes are counted through Aug 10, 11:59 KST. The Top 10 advance to the Muniverse app final.",preliminaryInfo:["Starts: Jul 17, 18:00 KST","Entry deadline: Aug 7, 23:59 KST","Like count closes: Aug 10, 11:59 KST","10,000 team points per valid entry; 100 per X like","Signed group album for the Top 3 in each team"],finalInfo:["Aug 11, 10:00–Aug 17, 17:00 KST","10,000,000 points for the winning entry's team","A selected-team postcard set for all 10 finalists","Album and postcard rewards may be combined"],guideSteps:["Create an image, GIF, or video from IDOL SCHOOL CAMP.","Follow Muniverse on X and publish the entry publicly.","Submit your team, title, Muniverse account, and X Post URL.","Rankings and team points activate after account verification."],principles:["Muniverse membership and following the official Muniverse X account are mandatory; otherwise the entry is excluded from final calculation.","Each valid entry earns 10,000 team points and each X like earns 100.","Up to 3 entries per X account; only its highest-ranked entry can advance.","Muniverse and X accounts are verified as a one-to-one pair; false or mismatched accounts are excluded.","Finalists are contacted through the X account used to enter; private accounts at announcement are excluded.","An entry reaching 10 valid reports is hidden pending review.","Irrelevant, offensive, or stolen works may be removed without notice."],pending:"Submitted. Rankings and points activate after account verification."
 });
 Object.assign(TALENT_I18N.ja,{
   ruleRegister:"有効作品登録",ruleWinner:"決選1位チームボーナス",muniverseAccountLabel:"Muniverseアカウント",muniverseAccountHelp:"アカウント確認済みの作品のみ順位・点数・特典の対象です。",consentFollow:"Muniverse公式Xアカウントをフォローしています。",preliminaryTitle:"予選日程・特典",finalTitle:"決選日程・特典",phaseNote:"Xいいねは8/10 11:59 KSTまで集計し、TOP10がMuniverseアプリ決選へ進出します。",preliminaryInfo:["開始: 7/17 18:00 KST","登録締切: 8/7 23:59 KST","集計締切: 8/10 11:59 KST","有効登録10,000点・Xいいね1件100点","各チーム予選1〜3位にグループサインアルバム"],finalInfo:["8/11 10:00〜8/17 17:00 KST","1位作品の応援チームに10,000,000点","TOP10全員に選択チームのポストカードセット","サインアルバムとの重複受領可"],principles:["MuniverseアカウントとXアカウントを1対1で確認し、虚偽・不一致は対象外です。","Muniverse公式Xのフォローは必須です。","決選当選作品は参加したXアカウントを基準に案内します。発表時に非公開（鍵）アカウントは対象外です。","有効な通報が10件累積した作品は確認のため自動非表示になります。"],pending:"登録されました。アカウント確認後に順位と点数へ反映されます。"
@@ -5180,13 +5081,13 @@ Object.assign(TALENT_I18N["zh-TW"],{
 TALENT_I18N.ja.guideSteps=["番組の場面から画像・GIF・動画を制作します。","Muniverse公式Xをフォローし、作品を全体公開で投稿します。","応援チーム・作品名・Muniverseアカウント・X投稿URLを登録します。","アカウント確認後に順位とチーム点数へ反映されます。"];
 TALENT_I18N["zh-CN"].guideSteps=["使用节目画面制作图片、GIF或视频。","关注Muniverse官方X并公开发布作品。","登记应援队、标题、Muniverse账号及X帖子地址。","账号核验后计入排名与队伍分数。"];
 TALENT_I18N["zh-TW"].guideSteps=["使用節目畫面製作圖片、GIF或影片。","追蹤Muniverse官方X並公開發布作品。","登記應援隊、標題、Muniverse帳號及X貼文網址。","帳號核驗後列入排名與隊伍分數。"];
-Object.assign(TALENT_I18N.ja,{guideSub:"参加手順と参加案内をご確認ください。",principlesTitle:"参加案内",preliminaryLabel:"予選",finalLabel:"決選",programTitle:"芸能大会プログラム",flowTitle:"最初の舞台から最後の夜まで",finalistsFlow:"TOP10 決選進出チケット",preliminaryCardTitle:"Xいいね予選ステージ",finalCardTitle:"Muniverseアプリ決選ステージ",periodTitle:"ステージ日程",methodTitle:"進行",rewardTitle:"特典",preliminaryRewardTitle:"🎁 予選特典",finalRewardTitle:"🏆 決選特典",preliminaryMethod:"X投稿のいいね数で順位を集計します。",finalMethod:"予選TOP10をMuniverseアプリ投票で決定します。",testOpen:"● テストページ・日程に関係なく登録可能",principles:["Muniverseへの登録とMuniverse公式Xのフォローは必須です。未登録・未フォローの場合は最終集計から除外されます。","MuniverseアカウントとXアカウントを1対1で確認し、虚偽・不一致は対象外です。","決選当選作品は参加したXアカウントを基準に案内します。発表時に非公開（鍵）アカウントは対象外です。","有効な通報が10件累積した作品は確認のため自動非表示になります。"]});
-Object.assign(TALENT_I18N["zh-CN"],{guideSub:"请确认参加步骤和参赛须知。",principlesTitle:"参赛须知",preliminaryLabel:"预赛",finalLabel:"决赛",programTitle:"才艺大赛节目单",flowTitle:"从首场舞台到最终之夜",finalistsFlow:"TOP10 决赛入场券",preliminaryCardTitle:"X点赞预赛舞台",finalCardTitle:"Muniverse应用决赛舞台",periodTitle:"舞台日程",methodTitle:"方式",rewardTitle:"奖励",preliminaryRewardTitle:"🎁 预赛奖励",finalRewardTitle:"🏆 决赛奖励",preliminaryMethod:"根据X帖子的点赞数统计排名。",finalMethod:"预赛TOP10通过Muniverse应用投票决定。",testOpen:"● 测试页面 · 不受日程限制，现在可登记",principles:["注册Muniverse并关注Muniverse官方X账号为必需条件；未注册或未关注者不计入最终统计。","Muniverse账号与X账号须一对一核验，虚假或不一致账号将被排除。","决赛获奖作品以参赛X账号为准通知；公布时为非公开账号者将被排除。","累计10次有效举报的作品将自动隐藏并等待审核。"]});
-Object.assign(TALENT_I18N["zh-TW"],{guideSub:"請確認參加步驟與參賽須知。",principlesTitle:"參賽須知",preliminaryLabel:"預賽",finalLabel:"決賽",programTitle:"才藝大賽節目單",flowTitle:"從首場舞台到最終之夜",finalistsFlow:"TOP10 決賽入場券",preliminaryCardTitle:"X按讚預賽舞台",finalCardTitle:"Muniverse應用程式決賽舞台",periodTitle:"舞台日程",methodTitle:"方式",rewardTitle:"獎勵",preliminaryRewardTitle:"🎁 預賽獎勵",finalRewardTitle:"🏆 決賽獎勵",preliminaryMethod:"依X貼文按讚數統計排名。",finalMethod:"預賽TOP10透過Muniverse應用程式投票決定。",testOpen:"● 測試頁面 · 不受日程限制，現在可登記",principles:["註冊Muniverse並追蹤Muniverse官方X帳號為必需條件；未註冊或未追蹤者不列入最終統計。","Muniverse帳號與X帳號須一對一核驗，虛假或不一致帳號將被排除。","決賽獲獎作品以參賽X帳號為準通知；公布時為非公開帳號者將被排除。","累計10次有效檢舉的作品將自動隱藏並等待審核。"]});
+Object.assign(TALENT_I18N.ja,{guideSub:"参加手順と参加案内をご確認ください。",principlesTitle:"参加案内",preliminaryLabel:"予選",finalLabel:"決選",preliminarySchedule:"7/17 18:00 – 8/10 11:59 KST",finalSchedule:"8/11 10:00 – 8/17 17:00 KST",preliminarySummary:"登録は8/7 23:59締切・Xいいねは8/10 11:59最終集計",finalSummary:"予選TOP10がMuniverseアプリ投票で最終順位を競います。",testOpen:"テストページ・現在登録可能",principles:["Muniverseへの登録とMuniverse公式Xのフォローは必須です。未登録・未フォローの場合は最終集計から除外されます。","MuniverseアカウントとXアカウントを1対1で確認し、虚偽・不一致は対象外です。","決選当選作品は参加したXアカウントを基準に案内します。発表時に非公開（鍵）アカウントは対象外です。","有効な通報が10件累積した作品は確認のため自動非表示になります。"]});
+Object.assign(TALENT_I18N["zh-CN"],{guideSub:"请确认参加步骤和参赛须知。",principlesTitle:"参赛须知",preliminaryLabel:"预赛",finalLabel:"决赛",preliminarySchedule:"7/17 18:00 – 8/10 11:59 KST",finalSchedule:"8/11 10:00 – 8/17 17:00 KST",preliminarySummary:"8/7 23:59截止登记；X点赞统计至8/10 11:59",finalSummary:"预赛TOP10通过Muniverse应用投票决定最终名次。",testOpen:"测试页面 · 现在可登记",principles:["注册Muniverse并关注Muniverse官方X账号为必需条件；未注册或未关注者不计入最终统计。","Muniverse账号与X账号须一对一核验，虚假或不一致账号将被排除。","决赛获奖作品以参赛X账号为准通知；公布时为非公开账号者将被排除。","累计10次有效举报的作品将自动隐藏并等待审核。"]});
+Object.assign(TALENT_I18N["zh-TW"],{guideSub:"請確認參加步驟與參賽須知。",principlesTitle:"參賽須知",preliminaryLabel:"預賽",finalLabel:"決賽",preliminarySchedule:"7/17 18:00 – 8/10 11:59 KST",finalSchedule:"8/11 10:00 – 8/17 17:00 KST",preliminarySummary:"8/7 23:59截止登記；X按讚統計至8/10 11:59",finalSummary:"預賽TOP10透過Muniverse應用程式投票決定最終名次。",testOpen:"測試頁面 · 現在可登記",principles:["註冊Muniverse並追蹤Muniverse官方X帳號為必需條件；未註冊或未追蹤者不列入最終統計。","Muniverse帳號與X帳號須一對一核驗，虛假或不一致帳號將被排除。","決賽獲獎作品以參賽X帳號為準通知；公布時為非公開帳號者將被排除。","累計10次有效檢舉的作品將自動隱藏並等待審核。"]});
 function talentText(){ return TALENT_I18N[lang] || TALENT_I18N.en; }
 const TALENT_X = {
-  ko:{reportBtn:"🚩 신고",reportConfirm:"이 작품을 신고할까요? 부적절·도용·규정 위반만 신고해주세요.",reportReason:"신고 사유(선택)",reportDone:"신고가 접수되었습니다.",reportDup:"이미 신고한 작품입니다.",reportLimit:"신고 요청이 너무 많습니다. 잠시 후 다시 시도해주세요.",reportHidden:"신고가 누적되어 검토 대기로 전환되었습니다.",reportGone:"이미 처리된 작품입니다.",reportErr:"신고 처리에 실패했습니다.",posted:"등록되었습니다! 순위에 바로 반영됩니다.",demoReport:"테스트 신고가 접수되었습니다(실제 반영 없음)."},
-  en:{reportBtn:"🚩 Report",reportConfirm:"Report this entry? Please report only inappropriate, stolen, or rule-breaking works.",reportReason:"Reason (optional)",reportDone:"Report received.",reportDup:"You already reported this entry.",reportLimit:"Too many reports. Please try again later.",reportHidden:"This entry has been hidden for review due to reports.",reportGone:"This entry has already been handled.",reportErr:"Report failed.",posted:"Submitted! It's now live in the ranking.",demoReport:"Demo report received (nothing saved)."},
+  ko:{reportBtn:"🚩 신고",reportConfirm:"이 작품을 신고할까요? 부적절·도용·규정 위반만 신고해주세요.",reportReason:"신고 사유(선택)",reportDone:"신고가 접수되었습니다.",reportDup:"이미 신고한 작품입니다.",reportLimit:"신고 요청이 너무 많습니다. 잠시 후 다시 시도해주세요.",reportHidden:"신고가 누적되어 운영진 검토 대기로 전환되었습니다.",reportGone:"작품을 찾을 수 없습니다. 새로고침 후 다시 시도해주세요.",reportVerified:"관리자 검수가 완료된 작품은 신고할 수 없습니다.",reportUnavailable:"숨김·반려·삭제된 작품은 신고할 수 없습니다.",reportErr:"신고 처리 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.",posted:"등록되었습니다! 순위에 바로 반영됩니다.",demoReport:"테스트 신고가 접수되었습니다(실제 반영 없음)."},
+  en:{reportBtn:"🚩 Report",reportConfirm:"Report this entry? Please report only inappropriate, stolen, or rule-breaking works.",reportReason:"Reason (optional)",reportDone:"Report received.",reportDup:"You already reported this entry.",reportLimit:"Too many reports. Please try again later.",reportHidden:"This entry has been hidden for admin review.",reportGone:"This entry could not be found. Refresh and try again.",reportVerified:"Admin-verified entries can no longer be reported.",reportUnavailable:"Hidden, rejected, or removed entries cannot be reported.",reportErr:"The report could not be processed. Please try again shortly.",posted:"Submitted! It's now live in the ranking.",demoReport:"Demo report received (nothing saved)."},
   ja:{reportBtn:"🚩 通報",reportConfirm:"この作品を通報しますか？不適切・盗用・規約違反のみ通報してください。",reportReason:"理由(任意)",reportDone:"通報を受け付けました。",reportDup:"すでに通報済みの作品です。",reportLimit:"通報が多すぎます。しばらくして再度お試しください。",reportHidden:"通報が累積し、確認待ちに切り替わりました。",reportGone:"すでに処理済みの作品です。",reportErr:"通報に失敗しました。",posted:"登録されました！ランキングに即時反映されます。",demoReport:"テスト通報を受け付けました(反映なし)。"},
   "zh-CN":{reportBtn:"🚩 举报",reportConfirm:"要举报该作品吗？请仅举报不当·盗用·违规内容。",reportReason:"举报理由(可选)",reportDone:"已收到举报。",reportDup:"你已举报过该作品。",reportLimit:"举报过于频繁，请稍后再试。",reportHidden:"举报累积，已转入待审核。",reportGone:"该作品已被处理。",reportErr:"举报失败。",posted:"已登记！即时反映到排名。",demoReport:"测试举报已收到(未写入)。"},
   "zh-TW":{reportBtn:"🚩 檢舉",reportConfirm:"要檢舉該作品嗎？請僅檢舉不當·盜用·違規內容。",reportReason:"檢舉理由(可選)",reportDone:"已收到檢舉。",reportDup:"你已檢舉過該作品。",reportLimit:"檢舉過於頻繁，請稍後再試。",reportHidden:"檢舉累積，已轉入待審核。",reportGone:"該作品已被處理。",reportErr:"檢舉失敗。",posted:"已登記！即時反映到排名。",demoReport:"測試檢舉已收到(未寫入)。"}
@@ -5196,7 +5097,6 @@ Object.assign(TALENT_X.en,{reportTitle:"Report entry",reportMuniverse:"Muniverse
 Object.assign(TALENT_X.ja,{reportTitle:"作品を通報",reportMuniverse:"Muniverseアカウント",reportX:"ご本人のXアカウント",reportReason:"通報理由",reportFollow:"Muniverse公式Xをフォローしています。",reportHelp:"確認済みのアカウント組み合わせのみ、1日3回まで通報できます。",reportSubmit:"通報する",reportPending:"アカウント確認後にもう一度お試しください。",reportMismatch:"別のアカウントと連携済みです。",reportFollowRequired:"公式Xのフォロー確認が必要です。",reportDaily:"通報は1日3回までです。",reportInvalid:"アカウント形式をご確認ください。",postedVerified:"登録され、順位に反映されました。",postedPending:"登録されました。アカウント確認後に反映されます。"});
 Object.assign(TALENT_X["zh-CN"],{reportTitle:"举报作品",reportMuniverse:"Muniverse账号",reportX:"您的X账号",reportReason:"举报理由",reportFollow:"我已关注Muniverse官方X。",reportHelp:"仅核验通过的账号组合可举报，每日最多3次。",reportSubmit:"提交举报",reportPending:"账号组合需先核验，请获批后重试。",reportMismatch:"其中一个账号已与其他账号绑定。",reportFollowRequired:"需核验已关注官方X。",reportDaily:"每个账号每日最多举报3次。",reportInvalid:"请检查账号格式。",postedVerified:"登记成功并计入排名。",postedPending:"登记成功，账号核验后计入排名。"});
 Object.assign(TALENT_X["zh-TW"],{reportTitle:"檢舉作品",reportMuniverse:"Muniverse帳號",reportX:"您的X帳號",reportReason:"檢舉理由",reportFollow:"我已追蹤Muniverse官方X。",reportHelp:"僅核驗通過的帳號組合可檢舉，每日最多3次。",reportSubmit:"提交檢舉",reportPending:"帳號組合需先核驗，請核准後重試。",reportMismatch:"其中一個帳號已與其他帳號綁定。",reportFollowRequired:"需核驗已追蹤官方X。",reportDaily:"每個帳號每日最多檢舉3次。",reportInvalid:"請檢查帳號格式。",postedVerified:"登記成功並列入排名。",postedPending:"登記成功，帳號核驗後列入排名。"});
-Object.assign(TALENT_X.ko,{postedPending:"등록되었습니다! 순위와 팀 점수에 바로 반영됩니다. 계정은 사후 검수됩니다."});
 function tx(k){ return (TALENT_X[lang]||TALENT_X.en)[k]; }
 let talentReportEntryId=null;
 function talentReportMessage(message,type){
@@ -5237,7 +5137,8 @@ async function submitTalentReport(e){
     const map={
       ok:[tx("reportDone"),"ok"],hidden:[tx("reportHidden"),"ok"],already_reported:[tx("reportDup"),"err"],
       daily_limited:[tx("reportDaily"),"err"],identity_pending:[tx("reportPending"),"err"],identity_mismatch:[tx("reportMismatch"),"err"],
-      follow_required:[tx("reportFollowRequired"),"err"],invalid_identity:[tx("reportInvalid"),"err"],not_found:[tx("reportGone"),"err"]
+      follow_required:[tx("reportFollowRequired"),"err"],invalid_identity:[tx("reportInvalid"),"err"],not_found:[tx("reportGone"),"err"],
+      report_blocked_verified:[tx("reportVerified"),"err"],report_not_available:[tx("reportUnavailable"),"err"]
     };
     const message=map[status]||[tx("reportErr"),"err"];
     talentReportMessage(message[0],message[1]);
@@ -5253,13 +5154,6 @@ function applyTalentI18n(){
   const pr=$("#talentPrinciples"); if(pr&&Array.isArray(T.principles)) pr.innerHTML=T.principles.map(s=>`<li>${esc(s)}</li>`).join("");
   const prelim=$("#talentPreliminaryInfo");if(prelim&&Array.isArray(T.preliminaryInfo))prelim.innerHTML=T.preliminaryInfo.map(s=>`<li>${esc(s)}</li>`).join("");
   const finalInfo=$("#talentFinalInfo");if(finalInfo&&Array.isArray(T.finalInfo))finalInfo.innerHTML=T.finalInfo.map(s=>`<li>${esc(s)}</li>`).join("");
-  const heroLists=[
-    ["talentPreliminaryHeroSchedule",Array.isArray(T.preliminaryInfo)?T.preliminaryInfo.slice(0,3):[]],
-    ["talentPreliminaryHeroRewards",Array.isArray(T.preliminaryInfo)?T.preliminaryInfo.slice(3):[]],
-    ["talentFinalHeroSchedule",Array.isArray(T.finalInfo)?T.finalInfo.slice(0,1):[]],
-    ["talentFinalHeroRewards",Array.isArray(T.finalInfo)?T.finalInfo.slice(1):[]]
-  ];
-  heroLists.forEach(([id,items])=>{const el=document.getElementById(id);if(el)el.innerHTML=items.map(s=>`<li>${esc(s)}</li>`).join("");});
   const reportLabels={talentReportTitle:"reportTitle",talentReportMuniverseLabel:"reportMuniverse",talentReportXLabel:"reportX",talentReportReasonLabel:"reportReason",talentReportFollowLabel:"reportFollow",talentReportHelp:"reportHelp",talentReportSubmitBtn:"reportSubmit"};
   Object.entries(reportLabels).forEach(([id,k])=>{const el=document.getElementById(id);if(el&&tx(k))el.textContent=tx(k);});
   renderTalentFilters(); updateTalentPhaseUI();
@@ -5284,7 +5178,7 @@ function updateTalentPhaseUI(){
   const prelim=$("#talentPreliminaryCard"), final=$("#talentFinalCard"), notice=$("#talentTestOpenNotice");
   if(prelim) prelim.classList.toggle("active",phase==="preliminary"||phase==="review");
   if(final) final.classList.toggle("active",phase==="final");
-  if(notice) notice.hidden=!open;
+  if(notice) notice.hidden=!(open&&phase!=="preliminary");
   [$("#talentRegisterBtn"),$("#talentMobileRegisterBtn")].forEach(b=>{if(b){b.disabled=!open;b.title=open?"":T.closed;}});
 }
 function demoTalentRows(){
@@ -5313,10 +5207,12 @@ function talentTeamBadge(teamId){
 }
 function talentCard(it,i){
   const medals=["🥇","🥈","🥉"], colors=["#D4A514","#A9B2BA","#B87333"];
-  return `<article class="talent-medal-card ${i===0?"first":""}" style="--medal:${colors[i]}"><div class="talent-medal-rank"><span class="emoji">${medals[i]}</span><span>${i+1}</span></div><div class="talent-medal-title">${esc(it.title)}</div><div class="talent-meta"><span>@${esc(it.username)}</span>${talentTeamBadge(it.team_id)}<span class="talent-like">♥ ${Number(it.like_count||0).toLocaleString()}</span></div><div class="talent-item-actions"><a class="talent-xlink" href="${esc(it.post_url)}" target="_blank" rel="noopener noreferrer">𝕏 ${esc(talentText().view)}</a><button type="button" class="talent-report" data-report-id="${esc(String(it.id))}">${esc(tx("reportBtn"))}</button></div></article>`;
+  const reportButton=String(it.identity_status||"pending")==="verified"?"":`<button type="button" class="talent-report" data-report-id="${esc(String(it.id))}">${esc(tx("reportBtn"))}</button>`;
+  return `<article class="talent-medal-card ${i===0?"first":""}" style="--medal:${colors[i]}"><div class="talent-medal-rank"><span class="emoji">${medals[i]}</span><span>${i+1}</span></div><div class="talent-medal-title">${esc(it.title)}</div><div class="talent-meta"><span>@${esc(it.username)}</span>${talentTeamBadge(it.team_id)}<span class="talent-like">♥ ${Number(it.like_count||0).toLocaleString()}</span></div><div class="talent-item-actions"><a class="talent-xlink" href="${esc(it.post_url)}" target="_blank" rel="noopener noreferrer">${esc(talentText().view)}</a>${reportButton}</div></article>`;
 }
 function talentRow(it){
-  return `<article class="talent-row"><div class="talent-rank">${Number(it.rank||0)}</div><div class="talent-title">${esc(it.title)}</div><div class="talent-account">@${esc(it.username)}</div><div>${talentTeamBadge(it.team_id)}</div><div class="talent-like">♥ ${Number(it.like_count||0).toLocaleString()}</div><div class="talent-item-actions"><a class="talent-xlink" href="${esc(it.post_url)}" target="_blank" rel="noopener noreferrer">${esc(talentText().view)}</a><button type="button" class="talent-report" data-report-id="${esc(String(it.id))}">${esc(tx("reportBtn"))}</button></div></article>`;
+  const reportButton=String(it.identity_status||"pending")==="verified"?"":`<button type="button" class="talent-report" data-report-id="${esc(String(it.id))}">${esc(tx("reportBtn"))}</button>`;
+  return `<article class="talent-row"><div class="talent-rank">${Number(it.rank||0)}</div><div class="talent-title">${esc(it.title)}</div><div class="talent-account">@${esc(it.username)}</div><div>${talentTeamBadge(it.team_id)}</div><div class="talent-like">♥ ${Number(it.like_count||0).toLocaleString()}</div><div class="talent-item-actions"><a class="talent-xlink" href="${esc(it.post_url)}" target="_blank" rel="noopener noreferrer">${esc(talentText().view)}</a>${reportButton}</div></article>`;
 }
 function renderTalentFilters(){
   const box=$("#talentFilters"); if(!box) return; const T=talentText();
@@ -5358,32 +5254,6 @@ function openTalentModal(){
 }
 function closeTalentModal(){const m=$("#talentModal");m.classList.remove("open");document.body.style.overflow="";}
 function talentFormMessage(msg,type){const el=$("#talentFormStatus");el.textContent=msg;el.className=`talent-form-status show ${type}`;}
-function talentSubmitErrorMessage(code,T){
-  if(lang!=="ko"){
-    if(code==="registration_closed") return T.closed;
-    return T.submitError;
-  }
-  const messages={
-    invalid_team:"응원 팀을 다시 선택해주세요.",
-    invalid_title:"작품 제목은 2자 이상 60자 이하로 입력해주세요.",
-    invalid_post_url:"X 게시물 주소 형식이 올바르지 않습니다. 게시물의 공유 링크를 다시 확인해주세요.",
-    invalid_muniverse_account:"가입한 뮤니버스 계정을 정확히 입력해주세요.",
-    consent_required:"필수 참가 안내 항목에 모두 동의해주세요.",
-    rate_limited:"짧은 시간에 등록 요청이 너무 많습니다. 잠시 후 다시 시도해주세요.",
-    turnstile_failed:"보안 인증이 만료되었습니다. 인증을 다시 완료한 뒤 등록해주세요.",
-    post_unavailable:"X 게시물을 불러올 수 없습니다. 게시물이 전체 공개인지와 주소가 맞는지 확인해주세요.",
-    x_author_unavailable:"X 게시물의 작성자 정보를 확인할 수 없습니다. 게시물 공개 상태를 확인해주세요.",
-    already_submitted:"이미 등록된 X 게시물입니다. 같은 게시물은 한 번만 등록할 수 있습니다.",
-    author_entry_limit:"이 X 계정은 등록 가능한 최대 3작품을 모두 등록했습니다.",
-    identity_pair_conflict:"입력한 뮤니버스 계정 또는 X 계정이 다른 계정과 이미 연결되어 있습니다. 실제 본인 계정을 확인해주세요.",
-    registration_closed:CONFIG.talent.testRegistrationOpen?"테스트 등록이 아직 서버에서 열리지 않았습니다. 운영진에게 문의해주세요.":"현재는 작품 등록 기간이 아닙니다.",
-    missing_server_secret:"등록 서버 설정이 완료되지 않았습니다. 운영진에게 문의해주세요.",
-    settings_unavailable:"등록 기간 설정을 불러오지 못했습니다. 잠시 후 다시 시도해주세요.",
-    service_unavailable:"등록 서버에 일시적인 저장 문제가 발생했습니다. 잠시 후 다시 시도해주세요. 계속되면 운영진에게 문의해주세요.",
-    insert_failed:"등록 서버에 일시적인 저장 문제가 발생했습니다. 잠시 후 다시 시도해주세요. 계속되면 운영진에게 문의해주세요."
-  };
-  return messages[code]||T.submitError;
-}
 async function submitTalentForm(e){
   e.preventDefault(); const T=talentText(), form=e.currentTarget;
   if(!form.checkValidity()){form.reportValidity();return;}
@@ -5396,16 +5266,12 @@ async function submitTalentForm(e){
     else{
       const S=CONFIG.supabase;
       const r=await fetch(`${S.url}/functions/v1/${CONFIG.talent.submitFunction}`,{method:"POST",headers:{"Content-Type":"application/json","apikey":S.anonKey,"Authorization":"Bearer "+S.anonKey},body:JSON.stringify(payload)});
-      const out=await r.json().catch(()=>({}));
-      if(!r.ok||!out.ok){
-        const code=String(out.code||"");
-        const err=new Error(talentSubmitErrorMessage(code,T));err.talentFriendly=true;throw err;
-      }
+      const out=await r.json().catch(()=>({})); if(!r.ok||!out.ok) throw new Error(out.message||out.code||"submit_failed");
       talentFormMessage(out.identity_status==="verified"?tx("postedVerified"):tx("postedPending"),"ok");
       talentPage=1; talentTeam=""; loadTalent();
     }
     form.reset(); setTimeout(closeTalentModal,1800);
-  }catch(err){console.warn("Talent submission failed",err);talentFormMessage(err&&err.talentFriendly?err.message:(lang==="ko"?"등록 서버에 연결할 수 없습니다. 네트워크를 확인한 뒤 다시 시도해주세요.":T.submitError),"err");}
+  }catch(err){console.warn(err);talentFormMessage(err.message&&err.message!=="submit_failed"?err.message:T.submitError,"err");}
   finally{btn.disabled=false;if(window.turnstile&&window.__talentTurnstileWidgetId!=null){try{window.turnstile.reset(window.__talentTurnstileWidgetId);}catch(_){}}}
 }
 function activateMainTab(name){
@@ -5471,7 +5337,7 @@ loadMemberPhotos();
 buildTeams();
 applyI18n();
 setInterval(renderScoreboard, 60000);
-// 장기자랑 순위도 1분마다 조용히 갱신합니다 (로딩 문구 없이 데이터만 갱신).
+// 장기자랑 순위 캐시를 10분마다 조용히 다시 읽습니다 (로딩 문구 없이 갱신).
 // 브라우저 탭이 백그라운드일 때는 건너뛰어 불필요한 요청을 줄입니다.
 setInterval(()=>{ if(talentInited && !document.hidden) loadTalent(true); }, Math.max(60000,Number(CONFIG.talent.leaderboardRefreshMs||600000)));
 logoImg.onload=()=>{ if($("#result").classList.contains("show")) renderCert(); };
