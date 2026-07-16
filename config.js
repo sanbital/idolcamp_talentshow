@@ -11,7 +11,7 @@ window.MUNIVERSE_CONFIG = {
   supabaseUrl: "https://mkmxshljipykeghbzhcv.supabase.co",
   supabaseAnonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1rbXhzaGxqaXB5a2VnaGJ6aGN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM4MzExMjEsImV4cCI6MjA5OTQwNzEyMX0.OxgUZs245lzbOb1xuaQYnKTB9gpvuRX3TU6d8je6SpI",
 
-  shareUrl: "https://sanbital.github.io/idolcamp-talent-test/",
+  shareUrl: "https://sanbital.github.io/idolcamp_talentshow/",
   gisu: 1, maxShown: 1000,
 
   // 테스트 페이지의 점수판은 실DB 대신 아래 샘플을 사용합니다.
