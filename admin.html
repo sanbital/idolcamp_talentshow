@@ -49,7 +49,7 @@
   </section>
 
   <section class="card">
-    <div class="toolbar"><div style="flex:1"><h2 style="margin:0">2. 작품 관리</h2></div><label>작품 상태<select id="entryStatus"><option value="">전체</option><option value="approved" selected>승인</option><option value="hidden">숨김</option><option value="rejected">반려</option><option value="unavailable">삭제·비공개</option><option value="removed">운영 삭제</option></select></label><button class="ghost" id="loadEntriesBtn">조회</button></div>
+    <div class="toolbar"><div style="flex:1"><h2 style="margin:0">2. 작품 관리</h2></div><label>작품 상태<select id="entryStatus"><option value="">전체</option><option value="approved" selected>승인</option><option value="hidden">숨김</option><option value="rejected">반려</option><option value="unavailable">삭제·비공개</option><option value="removed">운영 삭제</option></select></label><button class="ghost" id="loadEntriesBtn">조회</button><button class="ghost" id="exportCsvBtn">CSV 다운로드</button></div>
     <div class="table-wrap"><table><thead><tr><th>ID</th><th>팀</th><th>제목</th><th>뮤니버스</th><th>X 계정</th><th>계정 검수</th><th>좋아요</th><th>작품 상태</th><th>작품</th><th>처리</th></tr></thead><tbody id="entryBody"></tbody></table></div>
   </section>
 
@@ -133,8 +133,39 @@ $("#pickRejectBtn").onclick=async()=>{try{
   for(const r of rows){await rpc("meme_admin_identity_set",{p_admin_key:adminKey(),p_binding_id:r.id,p_action:"reject",p_follow_verified:false,p_note:note,p_admin_name:"admin"})}
   toast(`${rows.length}개 반려 완료`);refreshTalent();
 }catch(e){alert(e.message)}};
+$("#exportCsvBtn").onclick=async()=>{try{
+  const rows=await rpc("meme_admin_export",{p_admin_key:adminKey()});
+  if(!rows||!rows.length)return alert("내려받을 작품이 없습니다.");
+  const kst=v=>v?new Date(v).toLocaleString("sv-SE",{timeZone:"Asia/Seoul"}):"";
+  const q=v=>{const x=String(v??"");return /[",\n\r]/.test(x)?'"'+x.replace(/"/g,'""')+'"':x};
+  const head=["ID","팀","작품 제목","뮤니버스 계정","X 계정","X 프로필 주소","게시물 주소","게시물 업로드(KST)","등록 시간(KST)","계정 검수","작품 상태","좋아요","리포스트","신고 수","결선 진출","결선 순위"];
+  const lines=[head.join(",")].concat(rows.map(r=>[
+    r.id, TEAMS[r.team_id]||r.team_id||"", r.title,
+    r.muniverse_account, "@"+String(r.x_username||"").replace(/^@/,""),
+    r.x_profile_url, r.post_url,
+    kst(r.post_created_at), kst(r.submitted_at),
+    r.identity_status, r.status,
+    r.like_count||0, r.repost_count||0, r.report_count||0,
+    r.is_finalist?"Y":"", r.finalist_rank||""
+  ].map(q).join(",")));
+  const blob=new Blob(["\uFEFF"+lines.join("\r\n")],{type:"text/csv;charset=utf-8"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  const d=new Date(),p2=n=>String(n).padStart(2,"0");
+  a.download=`idolcamp_meme_entries_${d.getFullYear()}${p2(d.getMonth()+1)}${p2(d.getDate())}_${p2(d.getHours())}${p2(d.getMinutes())}.csv`;
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
+  toast(`${rows.length}건 CSV 다운로드 완료`);
+}catch(e){alert(e.message)}};
 $("#syncXBtn").onclick=async()=>{const r=await fetch(`${S.url}/functions/v1/sync-x-likes`,{method:"POST",headers:{...headers(),"x-admin-key":adminKey()},body:"{}"}),d=await r.json();if(!r.ok)throw new Error(d.message||d.code||"동기화 실패");toast(d.skipped?(d.reason==="too_soon"?"최근 동기화 후 10분이 지나지 않았습니다.":"예선 동결 상태"):`X 좋아요 ${Number(d.updated||0).toLocaleString()}건 동기화 완료`);refreshTalent()};
-$("#freezeBtn").onclick=async()=>{if(!confirm("최종 X 좋아요를 동결하고 TOP 10을 확정할까요?"))return;await rpc("meme_admin_freeze",{p_admin_key:adminKey(),p_admin_name:"admin"});toast("TOP 10 확정 완료");refreshTalent()};
+$("#freezeBtn").onclick=async()=>{try{
+  let msg="최종 X 좋아요를 동결하고 TOP 10을 확정할까요?\n\n동결 시점에 [계정 검수 완료 + 작품 승인]을 모두 충족하지 못한 작품은 최종 산정에서 자동 제외되며 점수가 회수됩니다.";
+  try{const sum=await rpc("meme_admin_summary",{p_admin_key:adminKey()});
+    if(Number(sum?.identity_pending||0)>0)msg+=`\n\n⚠ 검수 대기 계정 ${sum.identity_pending}건이 남아 있습니다. 해당 작품들은 전부 제외됩니다. 계속하려면 먼저 검수를 끝내는 것을 권장합니다.`;
+  }catch(_){}
+  if(!confirm(msg))return;
+  const d=await rpc("meme_admin_freeze",{p_admin_key:adminKey(),p_admin_name:"admin"});
+  toast(`TOP 10 확정 완료 · 결선 ${d.finalists||0}작 · 미검수 제외 ${d.excluded_unverified||0}건`);
+  refreshTalent();
+}catch(e){alert(e.message)}};
 $("#winnerBtn").onclick=async()=>{const id=Number($("#winner").value);if(!id)return alert("결선 작품을 선택하세요.");if(!confirm("이 작품을 1위로 확정하고 응원 팀에 1,000만점을 반영할까요?"))return;const d=await rpc("meme_admin_set_winner",{p_admin_key:adminKey(),p_entry_id:id,p_admin_name:"admin"});toast(`${TEAMS[d.team_id]} 1,000만점 반영 완료`);refreshAll()};
 $("#snapshotBtn").onclick=async()=>{await rpc("scoreboard_admin_snapshot",{p_admin_key:adminKey(),p_memo:"관리자 수동 저장",p_created_by:"admin"});toast("스냅샷 저장 완료");loadSnapshots()};
 $("#verifyBtn").onclick=async()=>{const d=await rpc("scoreboard_admin_verify",{p_admin_key:adminKey(),p_created_by:"admin"}),bad=(d.rows||[]).filter(r=>!r.matches),el=$("#verifyResult");el.style.display="block";el.innerHTML=d.ok?`정상입니다. 캐시와 원본 점수가 일치합니다.`:`불일치: `+bad.map(r=>`${esc(r.team_name)} 현재 ${r.cache_total_score} / 원본 ${r.expected_total_score}`).join("<br>");loadSnapshots()};
