@@ -3041,7 +3041,7 @@
   .talent-medal-card.first{background:linear-gradient(180deg,#FFF9D9,#fff)}
   .talent-medal-rank{display:flex;align-items:center;gap:7px;font-weight:950;color:#173e31}
   .talent-medal-rank .emoji{font-size:25px}
-  .talent-medal-title{font-size:15px;font-weight:950;color:#123a2e;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .talent-medal-title{font-size:15px;font-weight:950;color:#123a2e;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;min-height:calc(2 * 1.3em)}
   .talent-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;color:#6c8375;font-size:12px;font-weight:750}
   .talent-team{display:inline-flex;border-radius:999px;padding:4px 8px;font-size:10.5px;font-weight:900;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .talent-like{font-size:18px;font-weight:950;color:#c7254e}
@@ -3052,7 +3052,7 @@
   .talent-report:hover{background:#f3e9d9;border-color:#c9a86f;color:#7a5a2a}
   .talent-medal-card .talent-report{margin-top:6px}
   .talent-item-actions{display:flex;flex-direction:column;gap:5px;align-items:stretch}
-  .talent-medal-card .talent-item-actions{flex-direction:row;gap:8px;margin-top:6px}
+  .talent-medal-card .talent-item-actions{flex-direction:row;gap:8px;margin-top:auto;padding-top:6px}
   .talent-medal-card .talent-item-actions .talent-xlink{flex:1;margin-top:0}
   .talent-medal-card .talent-item-actions .talent-report{flex:0 0 auto;margin-top:0}
   .talent-warn{background:#FEF2F2;border:1.5px solid #F3B4B4;color:#9B1C1C;border-radius:14px;padding:12px 14px;font-size:12.5px;font-weight:800;line-height:1.55;margin:12px 0 2px;word-break:keep-all}
@@ -5303,13 +5303,18 @@ function talentTeamBadge(teamId){
   const tm=teamById(teamId); if(!tm) return "";
   return `<span class="talent-team" style="${teamBadgeStyle(tm)}">${esc(tm.name)}</span>`;
 }
+function talentReportBtn(it){
+  if(String(it.identity_status||"pending")==="verified")
+    return `<span class="talent-report" style="visibility:hidden" aria-hidden="true">${esc(tx("reportBtn"))}</span>`;
+  return `<button type="button" class="talent-report" data-report-id="${esc(String(it.id))}">${esc(tx("reportBtn"))}</button>`;
+}
 function talentCard(it,i){
   const medals=["🥇","🥈","🥉"], colors=["#D4A514","#A9B2BA","#B87333"];
-  const reportButton=String(it.identity_status||"pending")==="verified"?"":`<button type="button" class="talent-report" data-report-id="${esc(String(it.id))}">${esc(tx("reportBtn"))}</button>`;
+  const reportButton=talentReportBtn(it);
   return `<article class="talent-medal-card ${i===0?"first":""}" style="--medal:${colors[i]}"><div class="talent-medal-rank"><span class="emoji">${medals[i]}</span><span>${i+1}</span></div><div class="talent-medal-title">${esc(it.title)}</div><div class="talent-meta"><span>@${esc(it.username)}</span>${talentTeamBadge(it.team_id)}<span class="talent-like">♥ ${Number(it.like_count||0).toLocaleString()}</span></div><div class="talent-item-actions"><a class="talent-xlink" href="${esc(it.post_url)}" target="_blank" rel="noopener noreferrer">${esc(talentText().view)}</a>${reportButton}</div></article>`;
 }
 function talentRow(it){
-  const reportButton=String(it.identity_status||"pending")==="verified"?"":`<button type="button" class="talent-report" data-report-id="${esc(String(it.id))}">${esc(tx("reportBtn"))}</button>`;
+  const reportButton=talentReportBtn(it);
   return `<article class="talent-row"><div class="talent-rank">${Number(it.rank||0)}</div><div class="talent-title">${esc(it.title)}</div><div class="talent-account">@${esc(it.username)}</div><div>${talentTeamBadge(it.team_id)}</div><div class="talent-like">♥ ${Number(it.like_count||0).toLocaleString()}</div><div class="talent-item-actions"><a class="talent-xlink" href="${esc(it.post_url)}" target="_blank" rel="noopener noreferrer">${esc(talentText().view)}</a>${reportButton}</div></article>`;
 }
 function renderTalentFilters(){
