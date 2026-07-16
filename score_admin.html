@@ -49,7 +49,7 @@
   </section>
 
   <section class="card">
-    <div class="toolbar"><div style="flex:1"><h2 style="margin:0">2. 작품 관리</h2></div><label>작품 상태<select id="entryStatus"><option value="">전체</option><option value="approved" selected>승인</option><option value="hidden">숨김</option><option value="rejected">반려</option><option value="unavailable">삭제·비공개</option><option value="removed">운영 삭제</option></select></label><button class="ghost" id="loadEntriesBtn">조회</button></div>
+    <div class="toolbar"><div style="flex:1"><h2 style="margin:0">2. 작품 관리</h2></div><label>작품 상태<select id="entryStatus"><option value="">전체</option><option value="approved" selected>승인</option><option value="hidden">숨김</option><option value="rejected">반려</option><option value="unavailable">삭제·비공개</option><option value="removed">운영 삭제</option></select></label><button class="ghost" id="loadEntriesBtn">조회</button><button class="ghost" id="exportCsvBtn">CSV 다운로드</button></div>
     <div class="table-wrap"><table><thead><tr><th>ID</th><th>팀</th><th>제목</th><th>뮤니버스</th><th>X 계정</th><th>계정 검수</th><th>좋아요</th><th>작품 상태</th><th>작품</th><th>처리</th></tr></thead><tbody id="entryBody"></tbody></table></div>
   </section>
 
@@ -132,6 +132,28 @@ $("#pickRejectBtn").onclick=async()=>{try{
   const note=prompt(`선택한 ${rows.length}개 항목의 일괄 반려 사유`)||"";if(!note)return;
   for(const r of rows){await rpc("meme_admin_identity_set",{p_admin_key:adminKey(),p_binding_id:r.id,p_action:"reject",p_follow_verified:false,p_note:note,p_admin_name:"admin"})}
   toast(`${rows.length}개 반려 완료`);refreshTalent();
+}catch(e){alert(e.message)}};
+$("#exportCsvBtn").onclick=async()=>{try{
+  const rows=await rpc("meme_admin_export",{p_admin_key:adminKey()});
+  if(!rows||!rows.length)return alert("내려받을 작품이 없습니다.");
+  const kst=v=>v?new Date(v).toLocaleString("sv-SE",{timeZone:"Asia/Seoul"}):"";
+  const q=v=>{const x=String(v??"");return /[",\n\r]/.test(x)?'"'+x.replace(/"/g,'""')+'"':x};
+  const head=["ID","팀","작품 제목","뮤니버스 계정","X 계정","X 프로필 주소","게시물 주소","게시물 업로드(KST)","등록 시간(KST)","계정 검수","작품 상태","좋아요","리포스트","신고 수","결선 진출","결선 순위"];
+  const lines=[head.join(",")].concat(rows.map(r=>[
+    r.id, TEAMS[r.team_id]||r.team_id||"", r.title,
+    r.muniverse_account, "@"+String(r.x_username||"").replace(/^@/,""),
+    r.x_profile_url, r.post_url,
+    kst(r.post_created_at), kst(r.submitted_at),
+    r.identity_status, r.status,
+    r.like_count||0, r.repost_count||0, r.report_count||0,
+    r.is_finalist?"Y":"", r.finalist_rank||""
+  ].map(q).join(",")));
+  const blob=new Blob(["\uFEFF"+lines.join("\r\n")],{type:"text/csv;charset=utf-8"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  const d=new Date(),p2=n=>String(n).padStart(2,"0");
+  a.download=`idolcamp_meme_entries_${d.getFullYear()}${p2(d.getMonth()+1)}${p2(d.getDate())}_${p2(d.getHours())}${p2(d.getMinutes())}.csv`;
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
+  toast(`${rows.length}건 CSV 다운로드 완료`);
 }catch(e){alert(e.message)}};
 $("#syncXBtn").onclick=async()=>{const r=await fetch(`${S.url}/functions/v1/sync-x-likes`,{method:"POST",headers:{...headers(),"x-admin-key":adminKey()},body:"{}"}),d=await r.json();if(!r.ok)throw new Error(d.message||d.code||"동기화 실패");toast(d.skipped?(d.reason==="too_soon"?"최근 동기화 후 10분이 지나지 않았습니다.":"예선 동결 상태"):`X 좋아요 ${Number(d.updated||0).toLocaleString()}건 동기화 완료`);refreshTalent()};
 $("#freezeBtn").onclick=async()=>{if(!confirm("최종 X 좋아요를 동결하고 TOP 10을 확정할까요?"))return;await rpc("meme_admin_freeze",{p_admin_key:adminKey(),p_admin_name:"admin"});toast("TOP 10 확정 완료");refreshTalent()};
