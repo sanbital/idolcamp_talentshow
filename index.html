@@ -5382,12 +5382,11 @@ function initTalent(){
   const team=$("#talentTeam");team.innerHTML=CONFIG.teams.map(x=>`<option value="${esc(x.id)}">${esc(x.name)}</option>`).join("");
   renderTalentFilters();loadTalent();
   [$("#talentRegisterBtn"),$("#talentMobileRegisterBtn")].forEach(b=>{if(b)b.onclick=openTalentModal;});
-  $("#talentCloseBtn").onclick=closeTalentModal;$("#talentModal").addEventListener("click",e=>{if(e.target.id==="talentModal")closeTalentModal();});
-  $("#talentReportCloseBtn").onclick=closeTalentReportModal;$("#talentReportModal").addEventListener("click",e=>{if(e.target.id==="talentReportModal")closeTalentReportModal();});
+  $("#talentCloseBtn").onclick=closeTalentModal;
+  $("#talentReportCloseBtn").onclick=closeTalentReportModal;
   $("#talentReportForm").addEventListener("submit",submitTalentReport);
   $("#talentGuideBtn").onclick=()=>{const g=$("#talentGuide");g.hidden=!g.hidden;if(!g.hidden)g.scrollIntoView({behavior:"smooth",block:"start"});};
   $("#talentForm").addEventListener("submit",submitTalentForm);
-  document.addEventListener("keydown",e=>{if(e.key!=="Escape")return;if($("#talentModal").classList.contains("open"))closeTalentModal();if($("#talentReportModal").classList.contains("open"))closeTalentReportModal();});
 }
 function initMainTabs(){
   const before=talentPhase()==="before"&&!CONFIG.talent.previewBeforeStart&&!TALENT_DEMO;
