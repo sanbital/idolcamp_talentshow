@@ -38,7 +38,8 @@ window.MUNIVERSE_CONFIG = {
     registrationScore: 10000,
     likeScore: 100,
     finalWinnerScore: 10000000,
-    leaderboardRefreshMs: 300000,
+    // X 좋아요 동기화 주기와 맞춰 공개 순위도 10분마다 다시 읽습니다.
+    leaderboardRefreshMs: 600000,
 
     // 실제 운영 일정은 그대로 표시됩니다. 서버 등록 개방은 DB의
     // meme_event_settings.registration_open_override 값으로 제어합니다.

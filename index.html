@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Jua&family=Gaegu:wght@700&display=swap" rel="stylesheet" />
 <!-- 🔑 연결 설정: config.js 파일의 키값만 채우면 됩니다 (아래 파일이 없어도 정상 동작) -->
-<script src="config.js?v=20260715-4" onerror="window.__noConfig=1"></script>
+<script src="config.js?v=20260715-5" onerror="window.__noConfig=1"></script>
 <!-- Cloudflare Turnstile: 봇 방지 캡차 (사이트키는 config.js 의 turnstileSiteKey 로 주입) -->
 <script>
   window.__turnstileWidgetId = null;
@@ -3517,7 +3517,7 @@ const CONFIG = {
   turnstileSiteKey: _CFG.turnstileSiteKey || "",   // Cloudflare Turnstile 사이트 키(공개키). 비우면 캡차 미사용.
   talent: Object.assign({
     enabled:false, previewBeforeStart:false, testRegistrationOpen:true, pageSize:30, maxEntriesPerAuthor:3, maxFinalistsPerAuthor:1,
-    registrationScore:10000, likeScore:100, finalWinnerScore:10000000, leaderboardRefreshMs:300000,
+    registrationScore:10000, likeScore:100, finalWinnerScore:10000000, leaderboardRefreshMs:600000,
     preliminaryStart:"2026-07-17T18:00:00+09:00", preliminaryEnd:"2026-08-07T23:59:59+09:00",
     preliminaryCountEnd:"2026-08-10T11:59:59+09:00",
     finalStart:"2026-08-11T10:00:00+09:00", finalEnd:"2026-08-17T17:00:00+09:00",
@@ -5473,7 +5473,7 @@ applyI18n();
 setInterval(renderScoreboard, 60000);
 // 장기자랑 순위도 1분마다 조용히 갱신합니다 (로딩 문구 없이 데이터만 갱신).
 // 브라우저 탭이 백그라운드일 때는 건너뛰어 불필요한 요청을 줄입니다.
-setInterval(()=>{ if(talentInited && !document.hidden) loadTalent(true); }, Math.max(60000,Number(CONFIG.talent.leaderboardRefreshMs||300000)));
+setInterval(()=>{ if(talentInited && !document.hidden) loadTalent(true); }, Math.max(60000,Number(CONFIG.talent.leaderboardRefreshMs||600000)));
 logoImg.onload=()=>{ if($("#result").classList.contains("show")) renderCert(); };
 </script>
 </body>
